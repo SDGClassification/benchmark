@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "benchmarking-dataset"
+version = "0.0.0"
+description = "The SDG Classification Benchmarking Dataset is an open and public resource for evaluating and comparing SDG classification models."
+authors = ["Finn Woelm <finn@globalgoals.directory>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+
+[tool.poetry.group.dev.dependencies]
+pandas = "^2.2.0"
+black = "^24.2.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
