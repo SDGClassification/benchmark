@@ -108,7 +108,7 @@ For the sake of simplicity, we ignored valence and sentiment in the texts. A tex
 
 Texts were only assigned to a given SDG, if the text directly addressed that SDG and/or its targets. "We are subsidizing the costs of silicon" would not qualify for SDG 7, even though silicon is one of the materials for making photovoltaic cells and reduced cost of silicon might have indirect benefits for the expansion of solar energy.
 
-We discarded texts with indirect relevance because correct assessments would require tremendous thematic expertise and, even then, such interpretations would often remain highly subjective and contended.
+We ignored indirect relevance in texts because correct assessments would require enormous thematic expertise, and even then such interpretations would often remain highly subjective and controversial.
 
 ## Model results (pending)
 
