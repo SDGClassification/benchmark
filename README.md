@@ -6,6 +6,8 @@ The SDG Classification Benchmarking Dataset is an open and public resource for e
 
 ## Table of Contents<!-- omit from toc -->
 
+- [How to use](#how-to-use)
+  - [With Pandas (Python)](#with-pandas-python)
 - [Background](#background)
   - [Purpose](#purpose)
   - [Approach](#approach)
@@ -22,6 +24,43 @@ The SDG Classification Benchmarking Dataset is an open and public resource for e
   - [Core contributors](#core-contributors)
   - [List of annotators](#list-of-annotators)
   - [Text snippets](#text-snippets)
+
+## How to use
+
+You can find the benchmarking dataset here: https://github.com/SDGClassification/benchmarking-dataset/blob/main/benchmark.csv
+
+### With Pandas (Python)
+
+The snippet below shows example code for loading the benchmarking dataset as a Pandas dataframe and comparing the expected and predicted labels.
+
+You can [check out the full Pandas example](https://github.com/SDGClassification/benchmarking-dataset/blob/main/examples/with-pandas.py), which includes code for printing out aggregated statistics for each SDG (such as accuracy, precision, recall, and F1 score).
+
+```python
+import pandas as pd
+
+# Load the benchmarking dataset
+df = pd.read_csv(
+    "https://raw.githubusercontent.com/SDGClassification/benchmarking-dataset/main/benchmark.csv"
+)
+
+# Take the text to classify, run it through your model and return the list of
+# relevant SDGs in *numeric* format.
+# Important: Adapt this method according to your model
+def predict_sdgs(text: str) -> list[int]:
+    return model.predict(text)
+
+
+# Classify each text and get the predicted SDGs in *numeric* format
+df["predicted_sdgs"] = df["text"].map(predict_sdgs)
+
+# Determine the predicted label by checking whether the predicted SDGs contain
+# the SDG from the benchmarking dataset. Predicted label is set to `True` if
+# the benchmark's SDG is contained in the predictions.
+df["predicted_label"] = df.apply(lambda row: row.sdg in row.predicted_sdgs, axis=1)
+
+# Compare expected and predicted labels
+df["is_correct"] = df["label"] == df["predicted_label"]
+```
 
 ## Background
 
