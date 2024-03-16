@@ -1,15 +1,15 @@
 import sys
 from os import path
-from pathlib import Path
+
+# Make the modules of the parent folder accessible to the scripts
+# See: https://stackoverflow.com/a/27876800/6451879
+sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
+
 import argparse
 import importlib
-import yaml
 import pandas as pd
-from datetime import datetime
 from progress.bar import Bar
 from tabulate import tabulate
-from jinja2 import Template, StrictUndefined
-from babel.dates import format_date
 from sklearn.metrics import (
     accuracy_score,
     precision_score,
@@ -17,12 +17,9 @@ from sklearn.metrics import (
     f1_score,
     confusion_matrix,
 )
+from evaluations.BaseClassifier import BaseClassifier
 
-from typing import Callable
-
-# Make the modules of the parent folder accessible to the scripts
-# See: https://stackoverflow.com/a/27876800/6451879
-sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
+from typing import Type
 
 # Parse command-line arguments
 parser = argparse.ArgumentParser(
@@ -32,55 +29,18 @@ parser.add_argument("classifiers", type=str, nargs="+")
 args = parser.parse_args()
 
 
-class Classifier:
-    name: str
-    predict_sdgs: Callable[[str], list[int]]
-
-    def __init__(self, name) -> None:
-        self.name = name
-        self.predict_sdgs = self.load_predict_sdgs_method(name)
-
-    def write_results(self, df: pd.DataFrame) -> None:
-        df.to_csv(self.folder_path.joinpath("results.csv"), index=False)
-
-    def write_stats(self, df: pd.DataFrame) -> None:
-        df.to_csv(self.folder_path.joinpath("stats.csv"), index=False)
-
-    def write_readme(self, stats: str) -> None:
-        with open(Path("evaluations", "README.template.md"), "r") as f:
-            template = Template(f.read(), undefined=StrictUndefined)
-
-        with open(self.folder_path.joinpath("about.yaml"), "r") as f:
-            about = yaml.safe_load(f)
-
-        with open(self.folder_path.joinpath("README.md"), "w") as f:
-            f.write(
-                template.render(
-                    **about,
-                    stats=stats,
-                    date=format_date(datetime.today(), format="long", locale="en"),
-                )
-            )
-
-    @property
-    def folder_path(self):
-        return Path("evaluations", self.name)
-
-    @staticmethod
-    def load_predict_sdgs_method(name: str) -> Callable[[str], list[int]]:
-        module_path = f"evaluations.{name}.{name}"
-        try:
-            module = importlib.import_module(module_path, __name__)
-            return getattr(module, "predict_sdgs")
-        except ModuleNotFoundError as e:
-            file_path = module_path.replace(".", "/") + ".py"
-            print(
-                f"Tried to load classifier {name}. But file {file_path} does not exist."
-            )
-            exit(1)
+def load_classifier(name: str) -> Type[BaseClassifier]:
+    module_path = f"evaluations.{name}.{name}"
+    try:
+        module = importlib.import_module(module_path, __name__)
+        return getattr(module, "Classifier")
+    except ModuleNotFoundError as e:
+        file_path = module_path.replace(".", "/") + ".py"
+        print(f"Tried to load classifier {name}. But file {file_path} does not exist.")
+        exit(1)
 
 
-def calculate_stats(expected: list[bool], predicted: list[bool]):
+def calculate_stats(expected: pd.Series, predicted: pd.Series):
     # Calculate true and false positives and negatives
     tn, fp, fn, tp = confusion_matrix(expected, predicted).ravel()
 
@@ -98,7 +58,7 @@ def calculate_stats(expected: list[bool], predicted: list[bool]):
 
 
 # Initialize classifiers to evaluate
-classifiers = [Classifier(name) for name in args.classifiers]
+classifiers = [load_classifier(name)() for name in args.classifiers]
 
 # Load the benchmarking dataset
 BENCHMARK_DF = pd.read_csv("benchmark.csv")
@@ -153,8 +113,8 @@ for classifier in classifiers:
 
     for sdg in df["sdg"].unique():
         # Get expected and predicted labels
-        expected: list[bool] = df[df["sdg"] == sdg]["expected_label"]
-        predicted: list[bool] = df[df["sdg"] == sdg]["predicted_label"]
+        expected = df[df["sdg"] == sdg]["expected_label"]
+        predicted = df[df["sdg"] == sdg]["predicted_label"]
 
         stats.append(dict(sdg=sdg, **calculate_stats(expected, predicted)))
 
