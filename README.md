@@ -16,7 +16,7 @@ The SDG Classification Benchmarking Dataset is an open and public resource for e
     - [Non-exhaustive](#non-exhaustive)
     - [Non-sentimental](#non-sentimental)
     - [Non-interpretive](#non-interpretive)
-- [Model results (pending)](#model-results-pending)
+- [Model results](#model-results)
 - [Contributing](#contributing)
   - [Join the working group](#join-the-working-group)
   - [Suggestions and feedback](#suggestions-and-feedback)
@@ -110,17 +110,15 @@ Texts were only assigned to a given SDG, if the text directly addressed that SDG
 
 We ignored indirect relevance in texts because correct assessments would require enormous thematic expertise, and even then such interpretations would often remain highly subjective and controversial.
 
-## Model results (pending)
-
-This section is pending.
+## Model results
 
 The table below shows the accuracy (in percent) of SDG classification models when evaluated against this benchmarking dataset:
 
-| Model    | SDG 7 |
-| -------- | ----: |
-| example1 |    83 |
-| example2 |    79 |
-| example3 |    82 |
+| Model                                     | SDG 7 |
+| ----------------------------------------- | ----: |
+| [JRC SDG Mapper](evaluations/sdg-mapper/) |    86 |
+
+More models will be added in the future.
 
 Have you benchmarked a model that is not yet in our list? Please open an issue and share the results with us, so that we can add the model to the table above.
 
