@@ -37,29 +37,31 @@ df["predicted_label"] = df.apply(lambda row: row.sdg in row.predicted_sdgs, axis
 
 # Calculate aggregated stats for each SDG, such as accuracy, precision, recall,
 # and F1 scores
-stats = pd.DataFrame(dict(sdg=[])).set_index("sdg")
+stats = []
 
 for sdg in df["sdg"].unique():
     # Get expected and predicted labels
-    expected = df[df["sdg"] == sdg]["label"]
-    predicted = df[df["sdg"] == sdg]["predicted_label"]
+    expected: list[bool] = df[df["sdg"] == sdg]["label"]
+    predicted: list[bool] = df[df["sdg"] == sdg]["predicted_label"]
 
     # Calculate true and false positives and negatives
     tn, fp, fn, tp = confusion_matrix(expected, predicted).ravel()
 
     # Prepare the aggregated stats for this SDG
-    data = {
-        "n": len(expected),
-        "Accuracy (%)": round(accuracy_score(expected, predicted) * 100, 2),
-        "Precision (%)": round(precision_score(expected, predicted) * 100, 2),
-        "Recall (%)": round(recall_score(expected, predicted) * 100, 2),
-        "F1 score": round(f1_score(expected, predicted), 2),
-        "TP": tp,
-        "FP": fp,
-        "TN": tn,
-        "FN": fn,
-    }
-    stats.loc[sdg, data.keys()] = data.values()
+    stats.append(
+        {
+            "sdg": sdg,
+            "n": len(expected),
+            "Accuracy (%)": round(accuracy_score(expected, predicted) * 100, 2),
+            "Precision (%)": round(precision_score(expected, predicted) * 100, 2),
+            "Recall (%)": round(recall_score(expected, predicted) * 100, 2),
+            "F1 score": round(f1_score(expected, predicted), 2),
+            "TP": tp,
+            "FP": fp,
+            "TN": tn,
+            "FN": fn,
+        }
+    )
 
 
 # Print stats in tabular format
