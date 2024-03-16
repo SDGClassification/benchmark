@@ -10,7 +10,10 @@ about: |
 
   The "Aurora SDG multi-label mBERT model" is a smaller and faster model, and
   has been trained using 1.4 million abstracts using the SDG definition
-  according to the Aurora SDG queries v5.
+  according to the Aurora SDG queries v5, and outputs all the 17 probabilities
+  itself. The result is a prediction that ranges from 0 to 1 for each SDG goal.
+  Please refer to [aurora-sdg.py](aurora-sdg.py) to see the cutoff threshold
+  applied for the benchmark evaluation.
 
   Paper: https://zenodo.org/records/6487606
 

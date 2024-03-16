@@ -1,6 +1,6 @@
 import requests
 
-CUTOFF_THRESHOLD = 0.8
+CUTOFF_THRESHOLD = 0.6
 
 
 def predict_sdgs(text: str) -> list[int]:

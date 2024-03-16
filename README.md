@@ -117,7 +117,7 @@ The table below shows the accuracy (in percent) of SDG classification models whe
 | Model                                     | SDG 7 |
 | ----------------------------------------- | ----: |
 | [JRC SDG Mapper](evaluations/sdg-mapper/) |    86 |
-| [Aurora SDG](evaluations/aurora-sdg/)     |    66 |
+| [Aurora SDG](evaluations/aurora-sdg/)     |    74 |
 
 More models will be added in the future.
 
