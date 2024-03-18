@@ -114,10 +114,11 @@ We ignored indirect relevance in texts because correct assessments would require
 
 The table below shows the accuracy (in percent) of SDG classification models when evaluated against this benchmarking dataset:
 
-| Model                                     | SDG 7 |
-| ----------------------------------------- | ----: |
-| [Aurora SDG](evaluations/aurora-sdg/)     |    89 |
-| [JRC SDG Mapper](evaluations/sdg-mapper/) |    86 |
+| Model                                                         | SDG 7 |
+| ------------------------------------------------------------- | ----: |
+| [Aurora SDG](evaluations/aurora-sdg/)                         |    89 |
+| [Global Goals Directory](evaluations/global-goals-directory/) |    91 |
+| [JRC SDG Mapper](evaluations/sdg-mapper/)                     |    86 |
 
 More models will be added in the future.
 
