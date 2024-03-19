@@ -147,7 +147,7 @@ This benchmarking dataset is a living document and we will continue to make adju
 
 ### Core contributors
 
-The benchmarking dataset has been created by the Benchmarking Working Group of the [SDG Classification Expert Group](https://sdg-ai.org/). Core contributors are Finn Woelm, Steve Borchardt, Jean-Baptiste Jacouton, Meike Morren, Gib Ravivanpong and Dina Akylbekova.
+The benchmarking dataset has been created by the Benchmarking Working Group of the [SDG Classification Expert Group](https://sdg-ai.org/). Core contributors are Finn Woelm, Meike Morren, Steve Borchardt, Jean-Baptiste Jacouton and Gib Ravivanpong.
 
 ### List of annotators
 
