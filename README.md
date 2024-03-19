@@ -2,7 +2,7 @@
 
 The SDG Classification Benchmarking Dataset is an open and public resource for evaluating and comparing SDG classification models. It consists of text snippets (2 - 3 sentences), which have been carefully labeled and verified by a team of human experts.
 
-**Note**: The benchmarking dataset currently only covers SDG 7. We will be expanding the benchmarking dataset to other SDGs in the coming months.
+**Note**: The benchmarking dataset currently only covers SDGs 7 and 10. We will be expanding the benchmarking dataset to other SDGs in the coming months.
 
 ## Table of Contents<!-- omit from toc -->
 
@@ -11,10 +11,11 @@ The SDG Classification Benchmarking Dataset is an open and public resource for e
 - [Background](#background)
   - [Purpose](#purpose)
   - [Approach](#approach)
+  - [Coverage](#coverage)
   - [Limitations](#limitations)
     - [Binary](#binary)
     - [Non-exhaustive](#non-exhaustive)
-    - [Non-sentimental](#non-sentimental)
+    - [Ignores sentiment](#ignores-sentiment)
     - [Non-interpretive](#non-interpretive)
 - [Model evaluation](#model-evaluation)
   - [Disclaimer](#disclaimer)
@@ -30,6 +31,24 @@ The SDG Classification Benchmarking Dataset is an open and public resource for e
 ## How to use
 
 You can find the benchmarking dataset here: https://github.com/SDGClassification/benchmarking-dataset/blob/main/benchmark.csv
+
+The dataset consist of four columns:
+
+- `id`: Unique identifier for every text (MD5 hash)
+- `text`: Text snippet (2 - 3 sentences)
+- `sdg`: The SDG that the text is checked against
+- `label`: True if `sdg` is present in `text`. False otherwise.
+
+Below is an excerpt of the dataset.
+
+```
+     id                                               text  sdg  label
+03e9759  Not only does this have potentially negative e...    7  False
+04f6c7f  If too much water is stored behind the reservo...    7  False
+b87a4f8  Energy efficiency targets are now in place at ...    7   True
+12e3f54  Data over the last 30 years suggests that, had...    7   True
+135ea60  Large areas of about 500 000 km2 between Mumba...    7  False
+```
 
 ### With Pandas (Python)
 
@@ -84,6 +103,17 @@ To ensure a robust benchmarking dataset, the texts for each SDG were independent
 
 In some cases, consensus was reached by making slight modifications to a text in order to remove ambiguity.
 
+### Coverage
+
+The dataset currently covers SDGs 7 and 10.
+
+| SDG                                | Number of texts | Texts with SDG | Texts without SDG |
+| ---------------------------------- | --------------- | -------------- | ----------------- |
+| SDG 7: Affordable and clean energy | 100             | 50             | 50                |
+| SDG 10: Reduced inequalities       | 61              | 32             | 29                |
+
+Note that the number of texts across the SDGs as well as the number of texts with and without SDG are currently not balanced. The working group is focusing first on expanding the benchmark to all SDGs with at least 50 texts each &mdash; the exact number of texts for each SDG will depend on how difficult it is to reach consensus within the working group. In the long-term, the group is planning to expand the number of texts for each SDG to one hundred.
+
 ### Limitations
 
 While we have invested a lot of time and care to ensure that this benchmarking dataset is as robust as possible, there are important limitations to be aware of when using this dataset to evaluate your model.
@@ -102,7 +132,7 @@ We have tried to include a variety of texts in this benchmarking dataset in orde
 
 That said, due to the wide spectrum of issues covered by the SDGs, we cannot guarantee that this benchmarking dataset provides exhaustive coverage of all the relevant issues for each of the SDGs.
 
-#### Non-sentimental
+#### Ignores sentiment
 
 For the sake of simplicity, we ignored valence and sentiment in the texts. A text was classified as addressing a given SDG, even if the content was discussed in a negative light. For example, "We will reduce renewable energy subsidies" would still be classified as `true` for SDG 7.
 
