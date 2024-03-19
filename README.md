@@ -108,9 +108,9 @@ In some cases, consensus was reached by making slight modifications to a text in
 The dataset currently covers SDGs 7 and 10.
 
 | SDG                                | Number of texts | Texts with SDG | Texts without SDG |
-| ---------------------------------- | --------------- | -------------- | ----------------- |
-| SDG 7: Affordable and clean energy | 100             | 50             | 50                |
-| SDG 10: Reduced inequalities       | 61              | 32             | 29                |
+| ---------------------------------- | --------------: | -------------: | ----------------: |
+| SDG 7: Affordable and clean energy |             100 |             50 |                50 |
+| SDG 10: Reduced inequalities       |              61 |             32 |                29 |
 
 Note that the number of texts across the SDGs as well as the number of texts with and without SDG are currently not balanced. The working group is focusing first on expanding the benchmark to all SDGs with at least 50 texts each &mdash; the exact number of texts for each SDG will depend on how difficult it is to reach consensus within the working group. In the long-term, the group is planning to expand the number of texts for each SDG to one hundred.
 
@@ -150,14 +150,14 @@ Several models have been tested against this benchmark. The results can be used 
 
 ### Results
 
-The table below shows the accuracy (in percent) of models tested against this benchmark. Clicking one of the models provides additional details, including metadata about the model, F1 score, precision and recall.
+The table below shows the accuracy (in percent) of models tested against this benchmark. Clicking on one of the models provides additional details, including metadata about the model, F1 score, precision and recall.
 
-| Model                                                         | SDG 7 |
-| ------------------------------------------------------------- | ----: |
-| [AFD SDG Prospector](evaluations/sdg-prospector/)             |    95 |
-| [Aurora SDG](evaluations/aurora-sdg/)                         |    89 |
-| [Global Goals Directory](evaluations/global-goals-directory/) |    91 |
-| [JRC SDG Mapper](evaluations/sdg-mapper/)                     |    86 |
+| Model                                                         | All | SDG 7 | SDG 10 |
+| ------------------------------------------------------------- | --: | ----: | -----: |
+| [AFD SDG Prospector](evaluations/sdg-prospector/)             |  92 |    95 |     87 |
+| [Aurora SDG](evaluations/aurora-sdg/)                         |  80 |    89 |     66 |
+| [Global Goals Directory](evaluations/global-goals-directory/) |  87 |    91 |     80 |
+| [JRC SDG Mapper](evaluations/sdg-mapper/)                     |  80 |    86 |     70 |
 
 More models will be added in the future.
 

@@ -28,9 +28,10 @@ Learn more: https://aurora-universities.eu/sdg-research/
 
 | sdg   |   n |   Accuracy (%) |   Precision (%) |   Recall (%) |   F1 score |   TP |   FP |   TN |   FN |
 |-------|-----|----------------|-----------------|--------------|------------|------|------|------|------|
-| All   | 100 |             89 |           93.33 |           84 |       0.88 |   42 |    3 |   47 |    8 |
-| 7     | 100 |             89 |           93.33 |           84 |       0.88 |   42 |    3 |   47 |    8 |
+| All   | 161 |          80.12 |           75.27 |        88.61 |       0.81 |   70 |   23 |   59 |    9 |
+| 7     | 100 |          89    |           93.33 |        84    |       0.88 |   42 |    3 |   47 |    8 |
+| 10    |  61 |          65.57 |           58.33 |        96.55 |       0.73 |   28 |   20 |   12 |    1 |
 
-**Benchmarked on**: March 16, 2024
+**Benchmarked on**: March 19, 2024
 
 **Detailed benchmark results**: [results.csv](results.csv)
