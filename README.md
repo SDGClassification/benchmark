@@ -16,7 +16,9 @@ The SDG Classification Benchmarking Dataset is an open and public resource for e
     - [Non-exhaustive](#non-exhaustive)
     - [Non-sentimental](#non-sentimental)
     - [Non-interpretive](#non-interpretive)
-- [Model results](#model-results)
+- [Model evaluation](#model-evaluation)
+  - [Disclaimer](#disclaimer)
+  - [Results](#results)
 - [Contributing](#contributing)
   - [Join the working group](#join-the-working-group)
   - [Suggestions and feedback](#suggestions-and-feedback)
@@ -110,9 +112,15 @@ Texts were only assigned to a given SDG, if the text directly addressed that SDG
 
 We ignored indirect relevance in texts because correct assessments would require enormous thematic expertise, and even then such interpretations would often remain highly subjective and controversial.
 
-## Model results
+## Model evaluation
 
-The table below shows the accuracy (in percent) of SDG classification models when evaluated against this benchmarking dataset:
+### Disclaimer
+
+Several models have been tested against this benchmark. The results can be used as one criterion when evaluating models. Importantly, there are a range of other important aspects to consider that are not tested by this benchmark, such as cost, speed, and coverage of SDG targets. In addition, many models have been developed and optimized for domain-specific use cases (e.g. analyzing policy documents, research articles or websites) and their performance on this benchmark may not be representative of their performance on their domain-specific use case.
+
+### Results
+
+The table below shows the accuracy (in percent) of models tested against this benchmark. Clicking one of the models provides additional details, including metadata about the model, F1 score, precision and recall.
 
 | Model                                                         | SDG 7 |
 | ------------------------------------------------------------- | ----: |
