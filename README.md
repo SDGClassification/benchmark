@@ -32,7 +32,7 @@ The SDG Classification Benchmarking Dataset is an open and public resource for e
 
 You can find the benchmarking dataset here: https://github.com/SDGClassification/benchmarking-dataset/blob/main/benchmark.csv
 
-The dataset consist of four columns:
+The dataset consists of four columns:
 
 - `id`: Unique identifier for every text (MD5 hash)
 - `text`: Text snippet (2 - 3 sentences)
