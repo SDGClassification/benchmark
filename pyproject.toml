@@ -4,6 +4,7 @@ version = "0.0.0"
 description = "The SDG Classification Benchmarking Dataset is an open and public resource for evaluating and comparing SDG classification models."
 authors = ["Finn Woelm <finn@globalgoals.directory>"]
 readme = "README.md"
+package-mode = false
 
 [tool.poetry.dependencies]
 python = "^3.10"
