@@ -153,12 +153,12 @@ Several models have been tested against this benchmark. The results can be used 
 
 The table below shows the accuracy (in percent) of models tested against this benchmark. Clicking on one of the models provides additional details, including metadata about the model, F1 score, precision and recall.
 
-| Model                                                         | All | SDG 7 | SDG 10 |
-| ------------------------------------------------------------- | --: | ----: | -----: |
-| [AFD SDG Prospector](evaluations/sdg-prospector/)             |  92 |    95 |     87 |
-| [Aurora SDG](evaluations/aurora-sdg/)                         |  80 |    89 |     66 |
-| [Global Goals Directory](evaluations/global-goals-directory/) |  87 |    91 |     80 |
-| [JRC SDG Mapper](evaluations/sdg-mapper/)                     |  80 |    86 |     70 |
+| Model                                                         | All | SDG 5 | SDG 7 | SDG 10 |
+| ------------------------------------------------------------- | --: | ----: | ----: | -----: |
+| [AFD SDG Prospector](evaluations/sdg-prospector/)             |  89 |    81 |    95 |     87 |
+| [Aurora SDG](evaluations/aurora-sdg/)                         |  80 |    81 |    89 |     66 |
+| [Global Goals Directory](evaluations/global-goals-directory/) |  83 |    74 |    91 |     80 |
+| [JRC SDG Mapper](evaluations/sdg-mapper/)                     |  79 |    75 |    86 |     70 |
 
 More models will be added in the future.
 
