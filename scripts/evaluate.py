@@ -104,19 +104,23 @@ for classifier in classifiers:
 
     # Calculate aggregated stats for each SDG, such as accuracy, precision, recall,
     # and F1 scores
-    stats = [
-        dict(
-            sdg="All",
-            **calculate_stats(df["expected_label"], df["predicted_label"]),
-        )
-    ]
-
+    stats = []
     for sdg in df["sdg"].unique():
         # Get expected and predicted labels
         expected = df[df["sdg"] == sdg]["expected_label"]
         predicted = df[df["sdg"] == sdg]["predicted_label"]
 
         stats.append(dict(sdg=sdg, **calculate_stats(expected, predicted)))
+
+    # Calculate average stats
+    avg = pd.DataFrame(stats).drop(columns=["sdg"]).agg("mean").round(2)
+    stats = [
+        dict(
+            sdg="Average",
+            **avg.to_dict(),
+        ),
+        *stats,
+    ]
 
     # Write stats to file
     classifier.write_stats(pd.DataFrame(stats))
@@ -126,7 +130,7 @@ for classifier in classifiers:
     print(tabulate(stats, headers="keys", tablefmt="psql"))
 
     # Update readme
-    classifier.write_readme(tabulate(stats, headers="keys", tablefmt="github"))
+    classifier.write_readme(tabulate(stats, headers="keys", tablefmt="pipe"))
 
     print("Benchmark for", classifier.name, "completed")
     print("#" * 80)
