@@ -2,7 +2,7 @@
 
 The SDG Classification Benchmarking Dataset is an open and public resource for evaluating and comparing SDG classification models. It consists of text snippets (2 - 3 sentences), which have been carefully labeled and verified by a team of human experts.
 
-**Note**: The benchmarking dataset currently covers SDGs 3, 5, 7 and 10. We will be expanding the benchmarking dataset to other SDGs in the coming months.
+**Note**: The benchmarking dataset currently covers SDGs 3, 5, 6, 7 and 10. We will be expanding the benchmarking dataset to other SDGs in the coming months.
 
 ## Table of Contents<!-- omit from toc -->
 
@@ -105,12 +105,13 @@ In some cases, consensus was reached by making slight modifications to a text in
 
 ### Coverage
 
-The dataset currently covers SDGs 3, 5, 7 and 10.
+The dataset currently covers SDGs 3, 5, 6, 7 and 10.
 
 | SDG                                | Number of texts | Texts with SDG | Texts without SDG |
 | ---------------------------------- | --------------: | -------------: | ----------------: |
 | SDG 3: Good health and well-being  |              76 |             28 |                48 |
 | SDG 5: Gender equality             |              69 |             35 |                34 |
+| SDG 6: Clean water and sanitation  |              85 |             48 |                37 |
 | SDG 7: Affordable and clean energy |             100 |             50 |                50 |
 | SDG 10: Reduced inequalities       |              61 |             32 |                29 |
 
@@ -187,6 +188,7 @@ We especially thank our annotators for making this project possible.
 
 - **SDG 3**: Steve Borchardt, Meike Morren, Finn Woelm
 - **SDG 5**: Steve Borchardt, Meike Morren, Gib Ravivanpong, Finn Woelm
+- **SDG 6**: Steve Borchardt, Meike Morren, Gib Ravivanpong, Finn Woelm
 - **SDG 7**: Steve Borchardt, Jean-Baptiste Jacouton, Gib Ravivanpong, Finn Woelm
 - **SDG 10**: Steve Borchardt, Jean-Baptiste Jacouton, Meike Morren, Gib Ravivanpong, Finn Woelm
 
