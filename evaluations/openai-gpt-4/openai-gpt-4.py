@@ -52,9 +52,3 @@ class Classifier(BaseClassifier):
 
         data = json.loads(message)
         return data["sdgs"]
-
-
-if __name__ == "__main__":
-    c = Classifier()
-    for key in c.cache.iterkeys():
-        print(key)
