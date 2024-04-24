@@ -5,8 +5,8 @@ OpenAI as capable and cost-effective. They support a 16K context window and
 are optimized for dialog.
 
 The SDG classification was conducted by relying on GPT's inherent knowledge of
-the Sustainable Development Goals. No informed about the SDGs was passed into
-the prompt, as you can see below.
+the Sustainable Development Goals. No information about the SDGs was passed
+into the prompt, as you can see below.
 
 Note that the results can vary significantly depending on the prompt and
 parameters (such as temperature) used. If you find a configuration that yields
