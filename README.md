@@ -161,6 +161,8 @@ The table below shows the accuracy (in percent) of models tested against this be
 | [Aurora SDG](evaluations/aurora-sdg/)                         |      80 |    82 |    81 |    85 |    89 |     66 |
 | [Global Goals Directory](evaluations/global-goals-directory/) |      84 |    89 |    74 |    87 |    91 |     80 |
 | [JRC SDG Mapper](evaluations/sdg-mapper/)                     |      78 |    84 |    75 |    73 |    86 |     70 |
+| [OpenAI GPT-3.5 Turbo](evaluations/openai-gpt-3/)             |      87 |    82 |    87 |    91 |    90 |     87 |
+| [OpenAI GPT-4 Turbo](evaluations/openai-gpt-4/)               |      90 |    86 |    88 |    92 |    92 |     92 |
 
 More models will be added in the future.
 
