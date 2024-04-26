@@ -192,6 +192,7 @@ The benchmarking dataset has been created by the Benchmarking Working Group of t
 We especially thank our annotators for making this project possible.
 
 - **SDG 3**: Steve Borchardt, Meike Morren, Finn Woelm
+- **SDG 4**: Steve Borchardt, Meike Morren, Finn Woelm
 - **SDG 5**: Steve Borchardt, Meike Morren, Gib Ravivanpong, Finn Woelm
 - **SDG 6**: Steve Borchardt, Meike Morren, Gib Ravivanpong, Finn Woelm
 - **SDG 7**: Steve Borchardt, Jean-Baptiste Jacouton, Gib Ravivanpong, Finn Woelm
