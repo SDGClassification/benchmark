@@ -156,16 +156,20 @@ Several models have been tested against this benchmark. The results can be used 
 
 The table below shows the accuracy (in percent) of models tested against this benchmark. Clicking on one of the models provides additional details, including metadata about the model, F1 score, precision and recall.
 
-| Model                                                         | Average | SDG 3 | SDG 5 | SDG 6 | SDG 7 | SDG 10 |
-| ------------------------------------------------------------- | ------: | ----: | ----: | ----: | ----: | -----: |
-| [AFD SDG Prospector](evaluations/sdg-prospector/)             |      89 |    91 |    81 |    92 |    95 |     87 |
-| [Aurora SDG](evaluations/aurora-sdg/)                         |      80 |    82 |    81 |    85 |    89 |     66 |
-| [Global Goals Directory](evaluations/global-goals-directory/) |      84 |    89 |    74 |    87 |    91 |     80 |
-| [JRC SDG Mapper](evaluations/sdg-mapper/)                     |      78 |    84 |    75 |    73 |    86 |     70 |
-| [Meta Llama 2 70B](evaluations/llama-2/)                      |      88 |    93 |    93 |    85 |    92 |     79 |
-| [Meta Llama 3 70B](evaluations/llama-3/)                      |      90 |    86 |    91 |    92 |    91 |     92 |
-| [OpenAI GPT-3.5 Turbo](evaluations/openai-gpt-3/)             |      87 |    82 |    87 |    91 |    90 |     87 |
-| [OpenAI GPT-4 Turbo](evaluations/openai-gpt-4/)               |      90 |    86 |    88 |    92 |    92 |     92 |
+<!-- evaluation table begin -->
+
+| Model                                                         |   Average |   SDG 3 |   SDG 4 |   SDG 5 |   SDG 6 |   SDG 7 |   SDG 10 |
+|:--------------------------------------------------------------|----------:|--------:|--------:|--------:|--------:|--------:|---------:|
+| [AFD SDG Prospector](evaluations/sdg-prospector/)             |        90 |      91 |      95 |      81 |      92 |      95 |       87 |
+| [Aurora SDG](evaluations/aurora-sdg/)                         |        83 |      78 |      83 |      90 |      85 |      87 |       77 |
+| [Global Goals Directory](evaluations/global-goals-directory/) |        83 |      89 |      78 |      74 |      87 |      91 |       80 |
+| [JRC SDG Mapper](evaluations/sdg-mapper/)                     |        76 |      84 |      70 |      75 |      73 |      86 |       70 |
+| [Meta Llama 2 70B](evaluations/llama-2/)                      |        89 |      93 |      90 |      93 |      85 |      92 |       79 |
+| [Meta Llama 3 70B](evaluations/llama-3/)                      |        89 |      86 |      85 |      91 |      92 |      91 |       92 |
+| [OpenAI GPT-3.5 Turbo](evaluations/openai-gpt-3/)             |        86 |      82 |      80 |      87 |      91 |      90 |       87 |
+| [OpenAI GPT-4 Turbo](evaluations/openai-gpt-4/)               |        89 |      86 |      84 |      88 |      92 |      92 |       92 |
+
+<!-- evaluation table end -->
 
 More models will be added in the future.
 

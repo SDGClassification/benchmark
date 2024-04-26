@@ -3,7 +3,7 @@ import requests
 from evaluations.BaseClassifier import BaseClassifier
 
 
-CUTOFF_THRESHOLD = 0.04
+CUTOFF_THRESHOLD = 0.06
 
 
 class Classifier(BaseClassifier):

@@ -1,4 +1,5 @@
 name: Meta Llama 3 70B Instruct
+short_name: Meta Llama 3 70B
 about: |
   A 70 billion parameter language model from Meta, fine tuned for chat
   completions. Llama3 was published in 2024.

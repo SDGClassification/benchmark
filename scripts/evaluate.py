@@ -18,6 +18,7 @@ from sklearn.metrics import (
     confusion_matrix,
 )
 from evaluations.BaseClassifier import BaseClassifier
+from update_readme import update_readme
 
 from typing import Type
 
@@ -31,13 +32,8 @@ args = parser.parse_args()
 
 def load_classifier(name: str) -> Type[BaseClassifier]:
     module_path = f"evaluations.{name}.{name}"
-    try:
-        module = importlib.import_module(module_path, __name__)
-        return getattr(module, "Classifier")
-    except ModuleNotFoundError as e:
-        file_path = module_path.replace(".", "/") + ".py"
-        print(f"Tried to load classifier {name}. But file {file_path} does not exist.")
-        exit(1)
+    module = importlib.import_module(module_path, __name__)
+    return getattr(module, "Classifier")
 
 
 def calculate_stats(expected: pd.Series, predicted: pd.Series):
@@ -134,3 +130,6 @@ for classifier in classifiers:
 
     print("Benchmark for", classifier.name, "completed")
     print("#" * 80)
+
+# Update the main project README
+update_readme()

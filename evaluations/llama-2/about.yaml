@@ -1,4 +1,5 @@
 name: Meta Llama 2 70B Chat
+short_name: Meta Llama 2 70B
 about: |
   A 70 billion parameter language model from Meta, fine tuned for chat
   completions. Llama2 was published in 2023.
