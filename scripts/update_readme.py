@@ -6,13 +6,13 @@ import pandas as pd
 from tabulate import tabulate
 
 
-def update_readme():
+def update_readme() -> None:
     """Updates the main project README evaluation table"""
 
     stats = []
     for dir in os.scandir("evaluations"):
         # Only consider directories
-        if not dir.is_dir:
+        if not dir.is_dir():
             continue
 
         # Skip folders that do not define a <classifier-name.py> file

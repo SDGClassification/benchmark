@@ -46,7 +46,7 @@ class Classifier(BaseClassifier):
         return data["sdgs"]
 
     def get_system_prompt_template(self, system_prompt: str) -> str:
-        escaped_prompt = system_prompt.translate(str.maketrans({"{": "{{", "}": "}}"}))
+        escaped_prompt = system_prompt.replace("{", "{{").replace("}", "}}")
         return "\n\n".join(
             [
                 "<|begin_of_text|><|start_header_id|>system<|end_header_id|>",

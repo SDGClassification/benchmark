@@ -18,7 +18,7 @@ from sklearn.metrics import (
     confusion_matrix,
 )
 from evaluations.BaseClassifier import BaseClassifier
-from update_readme import update_readme
+from scripts.update_readme import update_readme
 
 from typing import Type
 
