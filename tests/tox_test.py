@@ -8,4 +8,4 @@ import os
     reason="Environment variable should not be set in Tox test",
 )
 def test_that_sdgclassification_benchmark_csv_env_var_is_not_set():
-    assert os.getenv("SDGCLASSIFICATION_BENCHMARK_CSV") == None
+    assert os.getenv("SDGCLASSIFICATION_BENCHMARK_CSV") is None

@@ -1,11 +1,3 @@
-# Purpose: Re-build the benchmark.csv file from the references.csv file
-
-# See: https://github.com/pandas-dev/pandas/issues/54466
-import warnings
-
-warnings.filterwarnings("ignore", "\nPyarrow", DeprecationWarning)
-
-
 from pathlib import Path
 import pandas as pd
 

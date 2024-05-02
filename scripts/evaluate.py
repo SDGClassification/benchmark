@@ -1,15 +1,8 @@
-import sys
-from os import path
-
-# Make the modules of the parent folder accessible to the scripts
-# See: https://stackoverflow.com/a/27876800/6451879
-sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
-
 import argparse
 import importlib
 from dotenv import load_dotenv
 import pandas as pd
-from sdgclassification.benchmark import Benchmark, Stats
+from sdgclassification.benchmark import Benchmark
 from evaluations.BaseClassifier import BaseClassifier
 from scripts.update_readme import update_readme
 

@@ -11,7 +11,7 @@ def predict_correctly():
         sdg = benchmark_df[benchmark_df.text == text]["sdg"].item()
         label = benchmark_df[benchmark_df.text == text]["label"].item()
 
-        return [sdg] if label == True else []
+        return [sdg] if label is True else []
 
     return classify
 
@@ -25,7 +25,7 @@ def predict_incorrectly():
         sdg = benchmark_df[benchmark_df.text == text]["sdg"].item()
         label = benchmark_df[benchmark_df.text == text]["label"].item()
 
-        return [] if label == True else [sdg]
+        return [] if label is True else [sdg]
 
     return classify
 
