@@ -27,6 +27,9 @@ class BaseClassifier:
     def write_stats(self, df: pd.DataFrame) -> None:
         df.to_csv(self.dir.joinpath("stats.csv"), index=False)
 
+    def write_accuracies(self, df: pd.DataFrame) -> None:
+        df.to_csv(self.dir.joinpath("accuracies.csv"), index=False)
+
     def write_readme(self, stats: str) -> None:
         with open(Path("evaluations", "README.template.md"), "r") as f:
             template = Template(f.read(), undefined=StrictUndefined)

@@ -19,26 +19,21 @@ def update_readme() -> None:
         if not Path(dir.path, dir.name + ".py").exists():
             continue
 
+        # Skip folders that do not have an accuracies.csv file
+        if not Path(dir.path, "accuracies.csv").exists():
+            continue
+
         # Load stats
-        stats_df = pd.read_csv(Path(dir.path, "stats.csv"))
-
-        # Keep average accuracies only
-        stats_df = stats_df[["sdg", "Accuracy (%)"]]
-
-        # Add prefix "SDG" to each SDG number
-        stats_df.sdg = stats_df.sdg.apply(lambda x: f"SDG {x}" if x != "Average" else x)
-
-        # Pivot SDGs into columns
-        stats_df = pd.pivot_table(stats_df, values="Accuracy (%)", columns=["sdg"])
+        accuracies_df = pd.read_csv(Path(dir.path, "accuracies.csv"))
 
         # Add name (as markdown link)
         with open(Path(dir.path, "about.yaml")) as f:
             data = yaml.safe_load(f)
             model_name = data.get("short_name", data["name"])
-        stats_df["Model"] = f"[{model_name}](evaluations/{dir.name}/)"
+        accuracies_df["Model"] = f"[{model_name}](evaluations/{dir.name}/)"
 
         # Ensure that all columns exist: Model, Average, SDG 1 - 17
-        stats_df = stats_df.reindex(
+        accuracies_df = accuracies_df.reindex(
             columns=[
                 "Model",
                 "Average",
@@ -47,7 +42,7 @@ def update_readme() -> None:
         )
 
         # Combine into dataframe
-        stats.append(stats_df)
+        stats.append(accuracies_df)
 
     # Combine into overall stats
     overall_stats_df = pd.concat(stats)

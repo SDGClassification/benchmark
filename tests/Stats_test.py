@@ -23,7 +23,8 @@ def describe_format():
     def it_supports_different_precision_levels(snapshot):
         stats = Stats([make_metrics(1, 1, 1, 1) for _ in range(1, 18)])
         snapshot.assert_match(
-            stats.format("pipe", precision=2), "stats-table-precise.txt"
+            stats.format("pipe", score_precision=5, f1_precision=3),
+            "stats-table-precise.txt",
         )
 
 

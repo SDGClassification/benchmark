@@ -7,26 +7,21 @@ sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
 
 import argparse
 import importlib
+from dotenv import load_dotenv
 import pandas as pd
-from progress.bar import Bar
-from tabulate import tabulate
-from sklearn.metrics import (
-    accuracy_score,
-    precision_score,
-    recall_score,
-    f1_score,
-    confusion_matrix,
-)
+from sdgclassification.benchmark import Benchmark, Stats
 from evaluations.BaseClassifier import BaseClassifier
 from scripts.update_readme import update_readme
 
 from typing import Type
 
+load_dotenv()
+
 # Parse command-line arguments
 parser = argparse.ArgumentParser(
     description="Run the benchmark on one or several SDG classifiers",
 )
-parser.add_argument("classifiers", type=str, nargs="+")
+parser.add_argument("classifier", type=str)
 args = parser.parse_args()
 
 
@@ -36,100 +31,40 @@ def load_classifier(name: str) -> Type[BaseClassifier]:
     return getattr(module, "Classifier")
 
 
-def calculate_stats(expected: pd.Series, predicted: pd.Series):
-    # Calculate true and false positives and negatives
-    tn, fp, fn, tp = confusion_matrix(expected, predicted).ravel()
-
-    return {
-        "n": len(expected),
-        "Accuracy (%)": round(accuracy_score(expected, predicted) * 100, 2),
-        "Precision (%)": round(precision_score(expected, predicted) * 100, 2),
-        "Recall (%)": round(recall_score(expected, predicted) * 100, 2),
-        "F1 score": round(f1_score(expected, predicted), 2),
-        "TP": tp,
-        "FP": fp,
-        "TN": tn,
-        "FN": fn,
-    }
-
-
 # Initialize classifiers to evaluate
-classifiers = [load_classifier(name)() for name in args.classifiers]
+classifier = load_classifier(args.classifier)()
 
-# Load the benchmarking dataset
-BENCHMARK_DF = pd.read_csv("benchmark.csv")
+# Run the benchmark
+benchmark = Benchmark(classifier.predict_sdgs)
+benchmark.run()
 
-# Rename label to expected label, so we can more easily distinguish between
-# expectation and prediction
-BENCHMARK_DF = BENCHMARK_DF.rename(columns={"label": "expected_label"})
+# Write stats to file
+stats_df = benchmark.stats.to_dataframe().round(1)
 
-# For each evaluation ...
-for classifier in classifiers:
-    # Copy the benchmarking data frame
-    df = BENCHMARK_DF.copy(deep=True)
+# Only keep metrics with at least one text
+stats_df = stats_df[stats_df.n > 0]
 
-    print("#" * 80)
-    print("Running benchmark for", classifier.name)
+# Write stats to file
+classifier.write_stats(stats_df)
 
-    # Prepare progress bar
-    bar = Bar("Benchmarking", max=len(df))
-    bar.update()
+# Keep average accuracies only
+accuracies_df = stats_df[["sdg", "accuracy"]].copy()
 
-    # Predict SDGs and advance progress
-    def predict_sdgs_with_progress(text: str):
-        sdgs: list[int] = classifier.predict_sdgs(text)
-        bar.next()
-        return sdgs
+# Add prefix "SDG" to each SDG number
+sdgs_series = accuracies_df.sdg.apply(lambda x: f"SDG {x}" if x != "Average" else x)
+accuracies_df.sdg = sdgs_series
 
-    # Classify each text and get the predicted SDGs in *numeric* format
-    df["predicted_sdgs"] = df["text"].map(predict_sdgs_with_progress)
+# Pivot SDGs into columns
+accuracies_df = pd.pivot_table(accuracies_df, values="accuracy", columns=["sdg"])
 
-    # Predictions are done
-    bar.finish()
+# Order by SDG number
+accuracies_df = accuracies_df.reindex(columns=sdgs_series)
 
-    # Determine the predicted label by checking whether the predicted SDGs
-    # contain the SDG from the benchmarking dataset. Predicted label is set to
-    # `True` if the benchmark's SDG is contained in the predictions.
-    df["predicted_label"] = df.apply(lambda row: row.sdg in row.predicted_sdgs, axis=1)
+# Write accuracies to file
+classifier.write_accuracies(accuracies_df)
 
-    # Determine if texts were classified correctly
-    df["correct"] = df["expected_label"] == df["predicted_label"]
-
-    # Write results to file
-    classifier.write_results(df)
-
-    # Calculate aggregated stats for each SDG, such as accuracy, precision, recall,
-    # and F1 scores
-    stats = []
-    for sdg in df["sdg"].unique():
-        # Get expected and predicted labels
-        expected = df[df["sdg"] == sdg]["expected_label"]
-        predicted = df[df["sdg"] == sdg]["predicted_label"]
-
-        stats.append(dict(sdg=sdg, **calculate_stats(expected, predicted)))
-
-    # Calculate average stats
-    avg = pd.DataFrame(stats).drop(columns=["sdg"]).agg("mean").round(2)
-    stats = [
-        dict(
-            sdg="Average",
-            **avg.to_dict(),
-        ),
-        *stats,
-    ]
-
-    # Write stats to file
-    classifier.write_stats(pd.DataFrame(stats))
-
-    # Print stats in tabular format
-    print("Results:")
-    print(tabulate(stats, headers="keys", tablefmt="psql"))
-
-    # Update readme
-    classifier.write_readme(tabulate(stats, headers="keys", tablefmt="pipe"))
-
-    print("Benchmark for", classifier.name, "completed")
-    print("#" * 80)
+# Update readme
+classifier.write_readme(benchmark.stats.format("pipe"))
 
 # Update the main project README
 update_readme()
