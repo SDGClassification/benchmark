@@ -1,27 +1,29 @@
 [tool.poetry]
-name = "benchmarking-dataset"
-version = "0.0.0"
-description = "The SDG Classification Benchmarking Dataset is an open and public resource for evaluating and comparing SDG classification models."
+name = "sdgclassification-benchmark"
+version = "0.7.0"
+description = "The SDG Classification Benchmark is an open and public resource for evaluating and comparing SDG classification models."
 authors = ["Finn Woelm <finn@globalgoals.directory>"]
+license = "MIT"
 readme = "README.md"
-package-mode = false
+repository = "https://github.com/SDGClassification/benchmark"
+packages = [{ include="sdgclassification/benchmark", from="src" }, { include="benchmark.csv", to="sdgclassification/benchmark/resources/"}]
+include = ["LICENSE"]
 
 [tool.poetry.dependencies]
-python = "^3.10"
-
+python = "^3.9"
+pandas = "^2.2.2"
+progress = "^1.6"
+scikit-learn = "^1.4.1.post1"
+tabulate = "^0.9.0"
 
 [tool.poetry.group.dev.dependencies]
-pandas = "^2.2.0"
 black = "^24.2.0"
-tabulate = "^0.9.0"
-scikit-learn = "^1.4.1.post1"
 mypy = "^1.9.0"
 pandas-stubs = "^2.2.0.240218"
 types-tabulate = "^0.9.0.20240106"
 requests = "^2.31.0"
 python-dotenv = "^1.0.1"
 types-requests = "^2.31.0.20240311"
-progress = "^1.6"
 pyarrow = "^15.0.1"
 jinja2 = "^3.1.3"
 pyyaml = "^6.0.1"
@@ -30,6 +32,12 @@ diskcache = "^5.6.3"
 types-pyyaml = "^6.0.12.20240311"
 openai = "^1.21.2"
 replicate = "^0.25.2"
+pytest = "^8.2.0"
+tox = "^4.15.0"
+virtualenv-pyenv = "^0.5.0"
+pytest-watch = "^4.2.0"
+pytest-describe = "^2.2.0"
+pytest-snapshot = "^0.9.0"
 
 [build-system]
 requires = ["poetry-core"]

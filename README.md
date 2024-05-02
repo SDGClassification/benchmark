@@ -1,6 +1,6 @@
-# Benchmarking Dataset for SDG Classification<!-- omit from toc -->
+# Benchmark for SDG Classification<!-- omit from toc -->
 
-The SDG Classification Benchmarking Dataset is an open and public resource for evaluating and comparing SDG classification models. It consists of text snippets (2 - 3 sentences), which have been carefully labeled and verified by a team of human experts.
+The SDG Classification Benchmark is an open and public benchmarking dataset for evaluating and comparing SDG classification models. It consists of text snippets (2 - 3 sentences), which have been carefully labeled and verified by a team of human experts.
 
 **Note**: The benchmarking dataset currently covers SDGs 3 - 7 and 10. We will be expanding the benchmarking dataset to other SDGs in the coming months.
 
@@ -30,7 +30,7 @@ The SDG Classification Benchmarking Dataset is an open and public resource for e
 
 ## How to use
 
-You can find the benchmarking dataset here: https://github.com/SDGClassification/benchmarking-dataset/blob/main/benchmark.csv
+You can find the benchmarking dataset here: https://github.com/SDGClassification/benchmark/blob/main/benchmark.csv
 
 The dataset consists of four columns:
 
@@ -54,14 +54,14 @@ b87a4f8  Energy efficiency targets are now in place at ...    7   True
 
 The snippet below shows example code for loading the benchmarking dataset as a Pandas dataframe and comparing the expected and predicted labels.
 
-You can [check out the full Pandas example](https://github.com/SDGClassification/benchmarking-dataset/blob/main/examples/with-pandas.py), which includes code for printing out aggregated statistics for each SDG (such as accuracy, precision, recall, and F1 score).
+You can [check out the full Pandas example](https://github.com/SDGClassification/benchmark/blob/main/examples/with-pandas.py), which includes code for printing out aggregated statistics for each SDG (such as accuracy, precision, recall, and F1 score).
 
 ```python
 import pandas as pd
 
 # Load the benchmarking dataset
 df = pd.read_csv(
-    "https://raw.githubusercontent.com/SDGClassification/benchmarking-dataset/main/benchmark.csv"
+    "https://raw.githubusercontent.com/SDGClassification/benchmark/main/benchmark.csv"
 )
 
 # Take the text to classify, run it through your model and return the list of
@@ -158,16 +158,16 @@ The table below shows the accuracy (in percent) of models tested against this be
 
 <!-- evaluation table begin -->
 
-| Model                                                         |   Average |   SDG 3 |   SDG 4 |   SDG 5 |   SDG 6 |   SDG 7 |   SDG 10 |
-|:--------------------------------------------------------------|----------:|--------:|--------:|--------:|--------:|--------:|---------:|
-| [AFD SDG Prospector](evaluations/sdg-prospector/)             |        90 |      91 |      95 |      81 |      92 |      95 |       87 |
-| [Aurora SDG](evaluations/aurora-sdg/)                         |        83 |      78 |      83 |      90 |      85 |      87 |       77 |
-| [Global Goals Directory](evaluations/global-goals-directory/) |        83 |      89 |      78 |      74 |      87 |      91 |       80 |
-| [JRC SDG Mapper](evaluations/sdg-mapper/)                     |        76 |      84 |      70 |      75 |      73 |      86 |       70 |
-| [Meta Llama 2 70B](evaluations/llama-2/)                      |        89 |      93 |      90 |      93 |      85 |      92 |       79 |
-| [Meta Llama 3 70B](evaluations/llama-3/)                      |        89 |      86 |      85 |      91 |      92 |      91 |       92 |
-| [OpenAI GPT-3.5 Turbo](evaluations/openai-gpt-3/)             |        86 |      82 |      80 |      87 |      91 |      90 |       87 |
-| [OpenAI GPT-4 Turbo](evaluations/openai-gpt-4/)               |        89 |      86 |      84 |      88 |      92 |      92 |       92 |
+| Model                                                         | Average | SDG 3 | SDG 4 | SDG 5 | SDG 6 | SDG 7 | SDG 10 |
+| :------------------------------------------------------------ | ------: | ----: | ----: | ----: | ----: | ----: | -----: |
+| [AFD SDG Prospector](evaluations/sdg-prospector/)             |      90 |    91 |    95 |    81 |    92 |    95 |     87 |
+| [Aurora SDG](evaluations/aurora-sdg/)                         |      83 |    78 |    83 |    90 |    85 |    87 |     77 |
+| [Global Goals Directory](evaluations/global-goals-directory/) |      83 |    89 |    78 |    74 |    87 |    91 |     80 |
+| [JRC SDG Mapper](evaluations/sdg-mapper/)                     |      76 |    84 |    70 |    75 |    73 |    86 |     70 |
+| [Meta Llama 2 70B](evaluations/llama-2/)                      |      89 |    93 |    90 |    93 |    85 |    92 |     79 |
+| [Meta Llama 3 70B](evaluations/llama-3/)                      |      89 |    86 |    85 |    91 |    92 |    91 |     92 |
+| [OpenAI GPT-3.5 Turbo](evaluations/openai-gpt-3/)             |      86 |    82 |    80 |    87 |    91 |    90 |     87 |
+| [OpenAI GPT-4 Turbo](evaluations/openai-gpt-4/)               |      89 |    86 |    84 |    88 |    92 |    92 |     92 |
 
 <!-- evaluation table end -->
 
