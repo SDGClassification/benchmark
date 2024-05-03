@@ -30,7 +30,9 @@ def update_readme() -> None:
         with open(Path(dir.path, "about.yaml")) as f:
             data = yaml.safe_load(f)
             model_name = data.get("short_name", data["name"])
-        accuracies_df["Model"] = f"[{model_name}](evaluations/{dir.name}/)"
+        accuracies_df["Model"] = (
+            f"[{model_name}](https://github.com/SDGClassification/benchmark/tree/main/evaluations/{dir.name}/)"
+        )
 
         # Ensure that all columns exist: Model, Average, SDG 1 - 17
         accuracies_df = accuracies_df.reindex(
