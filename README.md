@@ -2,7 +2,7 @@
 
 The SDG Classification Benchmark is an open and public benchmarking dataset for evaluating and comparing SDG classification models. It consists of text snippets (2 - 3 sentences), which have been carefully labeled and verified by a team of human experts.
 
-**Note**: The benchmarking dataset currently covers SDGs 3 - 7 and 10. We will be expanding the benchmarking dataset to other SDGs in the coming months.
+**Note**: The benchmarking dataset currently covers SDGs 1, 3 - 7 and 10. We will be expanding the benchmarking dataset to other SDGs in the coming months.
 
 ## Table of Contents<!-- omit from toc -->
 
@@ -154,10 +154,11 @@ In some cases, consensus was reached by making slight modifications to a text in
 
 ### Coverage
 
-The dataset currently covers SDGs 3 - 7 and 10.
+The dataset currently covers SDGs 1, 3 - 7 and 10.
 
 | SDG                                | Number of texts | Texts with SDG | Texts without SDG |
 | ---------------------------------- | --------------: | -------------: | ----------------: |
+| SDG 1: No poverty                  |              77 |             27 |                50 |
 | SDG 3: Good health and well-being  |              76 |             28 |                48 |
 | SDG 4: Quality education           |              82 |             43 |                39 |
 | SDG 5: Gender equality             |              69 |             35 |                34 |
