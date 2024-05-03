@@ -56,7 +56,7 @@ b87a4f8  Energy efficiency targets are now in place at ...    7   True
 
 ### With Python
 
-We have created the Python package `sdgclassification-benchmark` to make it easy to benchmark SDG classification models written in Python.
+We have created the Python package [sdgclassification-benchmark](https://pypi.org/project/sdgclassification-benchmark/) to make it easy to benchmark SDG classification models written in Python.
 
 First, install the package: `pip install sdgclassification-benchmark`
 
