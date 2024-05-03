@@ -112,6 +112,12 @@ df = benchmark.results.to_dataframe()
 # 4    52f8fc8  This is a limiting structure, as real-world ev...    3  ...          [8]           False        True
 ```
 
+You can also check out some of the example code snippets in this repository:
+
+- [Benchmarking SDG Mapper](https://github.com/SDGClassification/benchmark/blob/main/examples/sdg-mapper-api.py)
+- [Benchmarking OpenAI GPT models](https://github.com/SDGClassification/benchmark/blob/main/examples/openai-gpt-api.py)
+- [Benchmarking Llama models with Replicate API](https://github.com/SDGClassification/benchmark/blob/main/examples/llama-with-replicate-api.py)
+
 ### With other languages
 
 Using your preferred CSV reader/parser, you can access the benchmarking dataset from here: https://raw.githubusercontent.com/SDGClassification/benchmark/main/benchmark.csv
