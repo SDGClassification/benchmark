@@ -6,8 +6,10 @@ The SDG Classification Benchmark is an open and public benchmarking dataset for 
 
 ## Table of Contents<!-- omit from toc -->
 
+- [The dataset](#the-dataset)
 - [How to use](#how-to-use)
-  - [With Pandas (Python)](#with-pandas-python)
+  - [With Python](#with-python)
+  - [With other languages](#with-other-languages)
 - [Background](#background)
   - [Purpose](#purpose)
   - [Approach](#approach)
@@ -28,7 +30,7 @@ The SDG Classification Benchmark is an open and public benchmarking dataset for 
   - [List of annotators](#list-of-annotators)
   - [Text snippets](#text-snippets)
 
-## How to use
+## The dataset
 
 You can find the benchmarking dataset here: https://github.com/SDGClassification/benchmark/blob/main/benchmark.csv
 
@@ -50,38 +52,79 @@ b87a4f8  Energy efficiency targets are now in place at ...    7   True
 135ea60  Large areas of about 500 000 km2 between Mumba...    7  False
 ```
 
-### With Pandas (Python)
+## How to use
 
-The snippet below shows example code for loading the benchmarking dataset as a Pandas dataframe and comparing the expected and predicted labels.
+### With Python
 
-You can [check out the full Pandas example](https://github.com/SDGClassification/benchmark/blob/main/examples/with-pandas.py), which includes code for printing out aggregated statistics for each SDG (such as accuracy, precision, recall, and F1 score).
+We have created the Python package `sdgclassification-benchmark` to make it easy to benchmark SDG classification models written in Python.
+
+First, install the package: `pip install sdgclassification-benchmark`
+
+Then, run the benchmark on your custom `predict_sdgs` method:
 
 ```python
-import pandas as pd
-
-# Load the benchmarking dataset
-df = pd.read_csv(
-    "https://raw.githubusercontent.com/SDGClassification/benchmark/main/benchmark.csv"
-)
+from sdgclassification.benchmark import Benchmark
 
 # Take the text to classify, run it through your model and return the list of
 # relevant SDGs in *numeric* format.
-# Important: Adapt this method according to your model
+# IMPORTANT: ADAPT THIS METHOD ACCORDING YOUR MODEL
 def predict_sdgs(text: str) -> list[int]:
-    return model.predict(text)
+    # ... your model code here ...
+    return [1, 7, 17]
 
-
-# Classify each text and get the predicted SDGs in *numeric* format
-df["predicted_sdgs"] = df["text"].map(predict_sdgs)
-
-# Determine the predicted label by checking whether the predicted SDGs contain
-# the SDG from the benchmarking dataset. Predicted label is set to `True` if
-# the benchmark's SDG is contained in the predictions.
-df["predicted_label"] = df.apply(lambda row: row.sdg in row.predicted_sdgs, axis=1)
-
-# Compare expected and predicted labels
-df["is_correct"] = df["label"] == df["predicted_label"]
+benchmark = Benchmark(predict_sdgs)
+benchmark.run()
 ```
+
+You will see the following output:
+
+```bash
+################################################################################
+Running benchmark
+Benchmarking |################################| 473/473
+Results:
++---------+------+----------------+-----------------+--------------+------------+------+------+------+------+
+| SDG     |    n |   Accuracy (%) |   Precision (%) |   Recall (%) |   F1 Score |   TP |   FP |   TN |   FN |
+|---------+------+----------------+-----------------+--------------+------------+------+------+------+------|
+| Average | 78.8 |           83.3 |            93.5 |         71.3 |       0.80 |   28 |  1.8 | 38.2 | 10.8 |
+| 3       |   76 |           89.5 |            91.7 |         78.6 |       0.85 |   22 |    2 |   46 |    6 |
+| 4       |   82 |           78.0 |            87.9 |         67.4 |       0.76 |   29 |    4 |   35 |   14 |
+| 5       |   69 |           73.9 |           100.0 |         48.6 |       0.65 |   17 |    0 |   34 |   18 |
+| 6       |   85 |           87.1 |           100.0 |         77.1 |       0.87 |   37 |    0 |   37 |   11 |
+| 7       |  100 |           91.0 |            97.7 |         84.0 |       0.90 |   42 |    1 |   49 |    8 |
+| 10      |   61 |           80.3 |            84.0 |         72.4 |       0.78 |   21 |    4 |   28 |    8 |
++---------+------+----------------+-----------------+--------------+------------+------+------+------+------+
+Benchmark completed
+################################################################################
+```
+
+After running the benchmark, you can also access detailed results in your Python script, showing you where the model has made correct and incorrect predictions.
+
+```python
+# Convert results into a Pandas dataframe
+df = benchmark.results.to_dataframe()
+
+#          id                                               text  sdg  ...  predictions predicted_label  is_correct
+# 0    e0ab386  The Ministry of Education is charged with the ...    3  ...          [4]           False        True
+# 1    9177b53  Most of the local government institutions lack...    3  ...          [8]           False        True
+# 2    8dd268f  Brisbane: School of Population Health, Univers...    3  ...       [8, 3]            True        True
+# 3    9b237c8  Authorship is usually collective, but principa...    3  ...           []           False        True
+# 4    52f8fc8  This is a limiting structure, as real-world ev...    3  ...          [8]           False        True
+```
+
+### With other languages
+
+Using your preferred CSV reader/parser, you can access the benchmarking dataset from here: https://raw.githubusercontent.com/SDGClassification/benchmark/main/benchmark.csv
+
+For example, in R:
+
+```r
+df <- read.csv("https://raw.githubusercontent.com/SDGClassification/benchmark/main/benchmark.csv")
+```
+
+You can then classify the `text` in each row of the dataset and compare your model's predictions with the true label.
+
+You can [find short descriptions about each of the columns in the dataset here](#the-dataset).
 
 ## Background
 
