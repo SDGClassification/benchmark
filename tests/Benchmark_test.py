@@ -1,4 +1,5 @@
 import pytest
+import re
 from sdgclassification.benchmark import Benchmark, load_benchmark_df
 
 
@@ -42,11 +43,20 @@ def test_it_can_run():
 
 
 def describe_run():
-    def it_prints_stats_table(capsys, snapshot):
+    def it_prints_stats_table(capsys):
         b = Benchmark(predict_sdgs=lambda _: [])
         b.run()
         captured_out = capsys.readouterr().out
-        snapshot.assert_match(captured_out, "benchmark_out.txt")
+
+        # Squeeze whitespaces
+        captured_out = re.sub(r"\s+", " ", captured_out)
+
+        assert (
+            "| SDG | n | Accuracy (%) | Precision (%) | Recall (%) | F1 Score | TP | FP | TN | FN |"
+            in captured_out
+        )
+        assert "| Average |" in captured_out
+        assert "| 7 | 100 |" in captured_out
 
     def it_can_get_accuracy_of_100_percent(predict_correctly):
         b = Benchmark(predict_sdgs=predict_correctly)
