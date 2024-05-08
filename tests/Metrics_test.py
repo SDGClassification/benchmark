@@ -49,6 +49,37 @@ def describe_calculate():
         assert m.fn == 0
 
 
+def describe_confusion_matrix():
+    def it_builds_correct_confusion_matrix():
+        matrix = Metrics.confusion_matrix(
+            expected=[True, True, False, False], predicted=[True, False, True, True]
+        )
+        assert matrix.tp == 1
+        assert matrix.fp == 2
+        assert matrix.tn == 0
+        assert matrix.fn == 1
+
+    def it_throws_if_expected_and_predicted_have_mismatched_length():
+        with pytest.raises(
+            ValueError,
+            match="expected series has length 5 and predicted series has length 4",
+        ):
+            Metrics.confusion_matrix(
+                expected=[True, True, False, False, False],
+                predicted=[True, False, True, True],
+            )
+
+    def it_throws_if_expected_or_predicted_contain_non_boolean_value():
+        with pytest.raises(
+            ValueError,
+            match=r"series must only contain boolean values \(True, False\)",
+        ):
+            Metrics.confusion_matrix(
+                expected=[True, True, False, "abc"],
+                predicted=[True, False, True, True],
+            )
+
+
 def describe_calculate_average():
     def it_ignores_metrics_without_data():
         avg = Metrics.calculate_average(

@@ -1,9 +1,10 @@
 import pytest
-from sdgclassification.benchmark import Stats, Metrics
+from sdgclassification.benchmark import Stats, Metrics, ConfusionMatrix
 
 
 def make_metrics(tp: int, fp: int, tn: int, fn: int):
-    return Metrics.calculate_from_confusion_matrix(tp=tp, fp=fp, tn=tn, fn=fn)
+    matrix = ConfusionMatrix(tp=tp, fp=fp, tn=tn, fn=fn)
+    return Metrics.calculate_from_confusion_matrix(matrix)
 
 
 def describe_format():

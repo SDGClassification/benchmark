@@ -2,7 +2,15 @@ from __future__ import annotations
 
 from dataclasses import dataclass, asdict
 import pandas as pd
-from sklearn.metrics import confusion_matrix
+
+from typing import NamedTuple
+
+
+class ConfusionMatrix(NamedTuple):
+    tp: int
+    fp: int
+    tn: int
+    fn: int
 
 
 @dataclass(frozen=True)
@@ -44,26 +52,20 @@ class Metrics:
 
         Returns: Metrics instance"""
 
-        # Calculate true and false positives and negatives
-        tn, fp, fn, tp = confusion_matrix(
-            expected, predicted, labels=[False, True]
-        ).ravel()
-
-        return cls.calculate_from_confusion_matrix(tp=tp, fp=fp, tn=tn, fn=fn)
+        return cls.calculate_from_confusion_matrix(
+            cls.confusion_matrix(expected, predicted)
+        )
 
     @classmethod
-    def calculate_from_confusion_matrix(
-        cls, tp: int, fp: int, tn: int, fn: int
-    ) -> Metrics:
+    def calculate_from_confusion_matrix(cls, matrix: ConfusionMatrix) -> Metrics:
         """Calculates metrics from the given confusion matrix.
 
         Args:
-            tp: Number of true positives
-            fp: Number of false positives
-            tn: Number of true negatives
-            fn: Number of false negatives
+            matrix: Instance of confusion matrix
 
         Returns: Metrics instance"""
+        tp, fp, tn, fn = matrix.tp, matrix.fp, matrix.tn, matrix.fn
+
         n = tp + fp + tn + fn
         precision = cls.ratio(tp, tp + fp, zero_division=0)
         recall = cls.ratio(tp, tp + fn, zero_division=0)
@@ -78,6 +80,36 @@ class Metrics:
             fp=fp,
             tn=tn,
             fn=fn,
+        )
+
+    @classmethod
+    def confusion_matrix(
+        cls, expected: list[bool], predicted: list[bool]
+    ) -> ConfusionMatrix:
+        """Calculates confusion matrix from expected and predicted values.
+
+        Args:
+            expected: The expected boolean values
+            predicted: The predicted boolean values
+
+        Returns: Confusion matrix instance"""
+
+        # Validate that both series have the same length
+        if len(expected) != len(predicted):
+            raise ValueError(
+                f"expected series has length {len(expected)} and predicted series has length {len(predicted)}"
+            )
+
+        # Validate that both series contain only boolean values
+        if any([type(v) is not bool for v in expected + predicted]):
+            raise ValueError("series must only contain boolean values (True, False)")
+
+        series = list(zip(expected, predicted))
+        return ConfusionMatrix(
+            tp=sum([e and p for e, p in series]),
+            fp=sum([not e and p for e, p in series]),
+            tn=sum([not e and not p for e, p in series]),
+            fn=sum([e and not p for e, p in series]),
         )
 
     @staticmethod
