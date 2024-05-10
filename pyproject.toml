@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "sdgclassification-benchmark"
-version = "0.8.0"
+version = "0.9.0"
 description = "The SDG Classification Benchmark is an open and public resource for evaluating and comparing SDG classification models."
 authors = ["Finn Woelm <finn@globalgoals.directory>"]
 license = "MIT"
