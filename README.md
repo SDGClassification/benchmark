@@ -8,29 +8,12 @@ The SDG Classification Benchmark is an open and public benchmarking dataset for 
 
 - [The dataset](#the-dataset)
 - [How to use](#how-to-use)
-  - [With Python](#with-python)
-  - [With other languages](#with-other-languages)
 - [Background](#background)
-  - [Purpose](#purpose)
-  - [Approach](#approach)
-  - [Coverage](#coverage)
-  - [Limitations](#limitations)
-    - [Binary](#binary)
-    - [Non-exhaustive](#non-exhaustive)
-    - [Ignores sentiment](#ignores-sentiment)
-    - [Non-interpretive](#non-interpretive)
 - [Model evaluation](#model-evaluation)
-  - [Disclaimer](#disclaimer)
-  - [Results](#results)
 - [Contributing](#contributing)
-  - [Join the working group](#join-the-working-group)
-  - [Suggestions and feedback](#suggestions-and-feedback)
 - [Credits](#credits)
-  - [Core contributors](#core-contributors)
-  - [List of annotators](#list-of-annotators)
-  - [Text snippets](#text-snippets)
 
-## The dataset
+## The dataset<a id="the-dataset"></a>
 
 You can find the benchmarking dataset here: https://github.com/SDGClassification/benchmark/blob/main/benchmark.csv
 
@@ -52,7 +35,7 @@ b87a4f8  Energy efficiency targets are now in place at ...    7   True
 135ea60  Large areas of about 500 000 km2 between Mumba...    7  False
 ```
 
-## How to use
+## How to use<a id="how-to-use"></a>
 
 ### With Python
 
@@ -132,7 +115,7 @@ You can then classify the `text` in each row of the dataset and compare your mod
 
 You can [find short descriptions about each of the columns in the dataset here](#the-dataset).
 
-## Background
+## Background<a id="background"></a>
 
 ### Purpose
 
@@ -197,7 +180,7 @@ Texts were only assigned to a given SDG, if the text directly addressed that SDG
 
 We ignored indirect relevance in texts because correct assessments would require enormous thematic expertise, and even then such interpretations would often remain highly subjective and controversial.
 
-## Model evaluation
+## Model evaluation<a id="model-evaluation"></a>
 
 ### Disclaimer
 
@@ -226,7 +209,7 @@ More models will be added in the future.
 
 Have you benchmarked a model that is not yet in our list? Please open an issue and share the results with us, so that we can add the model to the table above.
 
-## Contributing
+## Contributing<a id="contributing"></a>
 
 ### Join the working group
 
@@ -236,7 +219,7 @@ The [core contributors](#core-contributors) meet regularly to improve and expand
 
 This benchmarking dataset is a living document and we will continue to make adjustments and improvements based on feedback. Please open an issue to share your ideas, suggestions, and feedback.
 
-## Credits
+## Credits<a id="credits"></a>
 
 ### Core contributors
 
