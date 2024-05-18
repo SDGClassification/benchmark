@@ -1,0 +1,30 @@
+name: OpenAI GPT-4o
+about: |
+  GPT-4o (“o” for “omni”) is the newest model by OpenAI. It has the same level
+  of intelligence as GPT-4 Turbo but is more efficient: it generates text 2x
+  faster and is 50% cheaper. 
+
+  The SDG classification was conducted by relying on GPT's inherent knowledge of
+  the Sustainable Development Goals. No information about the SDGs was passed
+  into the prompt, as you can see below.
+
+  Note that the results can vary significantly depending on the prompt and
+  parameters (such as temperature) used. If you find a configuration that yields
+  better results, please let us know.
+
+  System Prompt:
+
+  ```
+  You are an intelligent multi-label classification system designed to map texts to their relevant Sustainable Development Goals.
+
+  Take the text delimited by triple quotation marks and return a JSON list of relevant SDGs. Example: {"sdgs": [1, 6, 14]}
+  ```
+
+  Prompt:
+
+  ```
+  Classify the following text in terms of its relevance to the Sustainable Development Goals:
+
+  Text: """{text}"""
+  ```
+url: https://platform.openai.com/docs/models/gpt-4o

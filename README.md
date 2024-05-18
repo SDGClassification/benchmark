@@ -203,6 +203,7 @@ The table below shows the accuracy (in percent) of models tested against this be
 | [Meta Llama 3 70B](https://github.com/SDGClassification/benchmark/tree/main/evaluations/llama-3/)                      |        87 |      77 |      90 |      86 |      85 |      91 |      92 |      91 |      80 |       92 |
 | [OpenAI GPT-3.5 Turbo](https://github.com/SDGClassification/benchmark/tree/main/evaluations/openai-gpt-3/)             |        83 |      65 |      93 |      82 |      80 |      87 |      91 |      90 |      76 |       87 |
 | [OpenAI GPT-4 Turbo](https://github.com/SDGClassification/benchmark/tree/main/evaluations/openai-gpt-4/)               |        86 |      75 |      93 |      86 |      84 |      88 |      92 |      92 |      77 |       92 |
+| [OpenAI GPT-4o](https://github.com/SDGClassification/benchmark/tree/main/evaluations/openai-gpt-4o/)                   |        88 |      79 |      94 |      82 |      84 |      94 |      93 |      93 |      80 |       93 |
 
 <!-- evaluation table end -->
 
