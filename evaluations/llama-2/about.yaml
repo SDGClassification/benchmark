@@ -17,7 +17,7 @@ about: |
   ```
   You are an intelligent multi-label classification system designed to map texts to their relevant Sustainable Development Goals.
 
-  Take the text delimited by triple quotation marks and return a JSON list of relevant SDGs. Example: {"sdgs": [1, 6, 14]}
+  Take the text delimited by triple quotation marks and return a JSON list of relevant SDGs in a single line. Example: {"sdgs": [1, 6, 14]}
   ```
 
   Prompt:
