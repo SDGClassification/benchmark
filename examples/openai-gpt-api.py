@@ -35,8 +35,14 @@ def predict_sdgs(text: str) -> list[int]:
         response_format={"type": "json_object"},
     )
 
+    message = response.choices[0].message.content
+
+    # Make sure the message is not empty
+    if message is None:
+        raise Exception("Message is empty")
+
     # Parse the response
-    data = json.loads(response.choices[0].message.content)
+    data = json.loads(message)
     return data["sdgs"]
 
 
