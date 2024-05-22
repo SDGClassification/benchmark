@@ -23,11 +23,12 @@ class Benchmark:
     _is_completed: bool = False
     _results: ResultSet
 
-    def __init__(self, predict_sdgs: PredictSdgs) -> None:
+    def __init__(self, predict_sdgs: PredictSdgs, sdgs: list[int] = []) -> None:
         """Initializes the benchmark.
 
         Args:
             predict_sdgs: method that takes in a text and returns list of SDGs
+            sdgs: select the SDGs for which to run the benchmark (defaults to all)
 
         Typical usage example:
 
@@ -47,6 +48,17 @@ class Benchmark:
 
         # Load the benchmarking dataset
         self.df = load_benchmark_df()
+
+        # Filter SDGs, if any
+        if len(sdgs):
+            self.df = self.df[self.df["sdg"].isin(sdgs)]
+
+        # Verify that all requested SDGs are present
+        missing_sdgs = set(sdgs) - set(self.df.sdg.unique())
+        if len(missing_sdgs):
+            raise ValueError(
+                f"SDGs {missing_sdgs} are not (yet) covered by the benchmark"
+            )
 
         # Prepare the progress bar
         self.bar = Bar("Benchmarking", max=len(self.df))

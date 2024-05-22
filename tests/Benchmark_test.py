@@ -31,9 +31,21 @@ def predict_incorrectly():
     return classify
 
 
-def test_it_can_init():
-    b = Benchmark(predict_sdgs=lambda x: [1, 2, 3])
-    assert not b.is_completed
+def describe_init():
+    def it_can_init():
+        b = Benchmark(predict_sdgs=lambda x: [1, 2, 3])
+        assert not b.is_completed
+
+    def it_can_filter_sdgs():
+        b = Benchmark(predict_sdgs=lambda x: [1, 2, 3], sdgs=[5, 8])
+        assert set(b.df["sdg"].unique()) == set([5, 8])
+
+    def it_throws_when_filtering_by_unavailable_sdg():
+        with pytest.raises(
+            ValueError,
+            match=re.escape("SDGs {25, 17} are not (yet) covered by the benchmark"),
+        ):
+            Benchmark(predict_sdgs=lambda x: [1, 2, 3], sdgs=[1, 25, 17])
 
 
 def test_it_can_run():
