@@ -18,5 +18,5 @@ def load_benchmark_df() -> pd.DataFrame:
     from . import resources
 
     f = impresources.files(resources) / "benchmark.csv"
-    with f.open("r") as file:
+    with f.open("r", encoding="utf-8") as file:
         return pd.read_csv(file)
