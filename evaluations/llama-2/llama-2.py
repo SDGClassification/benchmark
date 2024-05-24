@@ -40,7 +40,6 @@ class Classifier(BaseClassifier):
         # # self.cache.delete(key)
 
     def predict_sdgs(self, text: str) -> list[int]:
-        print(text)
         response = self.replicate_run(
             "meta/llama-2-70b-chat",
             input=dict(
@@ -65,15 +64,7 @@ class Classifier(BaseClassifier):
         )
 
         # Combine tokens
-        # message = "".join(response) + "}"
-
-        # # Keep only the text up to the closing bracket
-        # message = message[: message.find("}") + 1]
-
-        # Squish text
-
         message = "".join(response)
-        print(message)
 
         # Verify that message is not empty
         if not message:
