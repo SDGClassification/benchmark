@@ -195,17 +195,17 @@ The table below shows the accuracy (in percent) of models tested against this be
 
 <!-- evaluation table begin -->
 
-| Model                                                                                                                  |   Average |   SDG 1 |   SDG 2 |   SDG 3 |   SDG 4 |   SDG 5 |   SDG 6 |   SDG 7 |   SDG 8 |   SDG 9 |   SDG 10 |
-|:-----------------------------------------------------------------------------------------------------------------------|----------:|--------:|--------:|--------:|--------:|--------:|--------:|--------:|--------:|--------:|---------:|
-| [AFD SDG Prospector](https://github.com/SDGClassification/benchmark/tree/main/evaluations/sdg-prospector/)             |        90 |      95 |      87 |      91 |      95 |      81 |      92 |      95 |      89 |      86 |       87 |
-| [Aurora SDG](https://github.com/SDGClassification/benchmark/tree/main/evaluations/aurora-sdg/)                         |        80 |      79 |      83 |      80 |      79 |      93 |      81 |      85 |      81 |      70 |       70 |
-| [Global Goals Directory](https://github.com/SDGClassification/benchmark/tree/main/evaluations/global-goals-directory/) |        83 |      90 |      80 |      90 |      78 |      74 |      87 |      91 |      84 |      81 |       80 |
-| [JRC SDG Mapper](https://github.com/SDGClassification/benchmark/tree/main/evaluations/sdg-mapper/)                     |        77 |      82 |      71 |      84 |      70 |      75 |      73 |      86 |      77 |      77 |       70 |
-| [Meta Llama 2 70B](https://github.com/SDGClassification/benchmark/tree/main/evaluations/llama-2/)                      |        86 |      90 |      83 |      93 |      90 |      93 |      87 |      93 |      78 |      74 |       79 |
-| [Meta Llama 3 70B](https://github.com/SDGClassification/benchmark/tree/main/evaluations/llama-3/)                      |        87 |      77 |      90 |      86 |      85 |      91 |      92 |      91 |      80 |      84 |       92 |
-| [OpenAI GPT-3.5 Turbo](https://github.com/SDGClassification/benchmark/tree/main/evaluations/openai-gpt-3/)             |        82 |      65 |      93 |      82 |      80 |      87 |      91 |      90 |      76 |      68 |       87 |
-| [OpenAI GPT-4 Turbo](https://github.com/SDGClassification/benchmark/tree/main/evaluations/openai-gpt-4/)               |        86 |      75 |      93 |      86 |      84 |      88 |      92 |      92 |      77 |      79 |       92 |
-| [OpenAI GPT-4o](https://github.com/SDGClassification/benchmark/tree/main/evaluations/openai-gpt-4o/)                   |        88 |      79 |      94 |      82 |      84 |      94 |      93 |      93 |      80 |      84 |       93 |
+| Model                                                                                                                  |   Average |   SDG 1 |   SDG 2 |   SDG 3 |   SDG 4 |   SDG 5 |   SDG 6 |   SDG 7 |   SDG 8 |   SDG 9 |   SDG 10 |   SDG 11 |
+|:-----------------------------------------------------------------------------------------------------------------------|----------:|--------:|--------:|--------:|--------:|--------:|--------:|--------:|--------:|--------:|---------:|---------:|
+| [AFD SDG Prospector](https://github.com/SDGClassification/benchmark/tree/main/evaluations/sdg-prospector/)             |        90 |      95 |      87 |      91 |      95 |      81 |      92 |      95 |      89 |      86 |       87 |       90 |
+| [Aurora SDG](https://github.com/SDGClassification/benchmark/tree/main/evaluations/aurora-sdg/)                         |        80 |      79 |      83 |      80 |      79 |      93 |      81 |      85 |      81 |      70 |       70 |       81 |
+| [Global Goals Directory](https://github.com/SDGClassification/benchmark/tree/main/evaluations/global-goals-directory/) |        83 |      90 |      80 |      90 |      78 |      74 |      87 |      91 |      84 |      81 |       80 |       78 |
+| [JRC SDG Mapper](https://github.com/SDGClassification/benchmark/tree/main/evaluations/sdg-mapper/)                     |        76 |      82 |      71 |      84 |      70 |      75 |      73 |      86 |      77 |      77 |       70 |       75 |
+| [Meta Llama 2 70B](https://github.com/SDGClassification/benchmark/tree/main/evaluations/llama-2/)                      |        84 |      90 |      83 |      93 |      90 |      93 |      87 |      93 |      78 |      74 |       79 |       68 |
+| [Meta Llama 3 70B](https://github.com/SDGClassification/benchmark/tree/main/evaluations/llama-3/)                      |        86 |      77 |      90 |      86 |      85 |      91 |      92 |      91 |      80 |      84 |       92 |       84 |
+| [OpenAI GPT-3.5 Turbo](https://github.com/SDGClassification/benchmark/tree/main/evaluations/openai-gpt-3/)             |        81 |      65 |      93 |      82 |      80 |      87 |      91 |      90 |      76 |      68 |       87 |       71 |
+| [OpenAI GPT-4 Turbo](https://github.com/SDGClassification/benchmark/tree/main/evaluations/openai-gpt-4/)               |        85 |      75 |      93 |      86 |      84 |      88 |      92 |      92 |      77 |      79 |       92 |       77 |
+| [OpenAI GPT-4o](https://github.com/SDGClassification/benchmark/tree/main/evaluations/openai-gpt-4o/)                   |        88 |      79 |      94 |      82 |      84 |      94 |      93 |      93 |      80 |      84 |       93 |       88 |
 
 <!-- evaluation table end -->
 
