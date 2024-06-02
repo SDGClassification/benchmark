@@ -1,0 +1,38 @@
+name: Mixtral 8x7B
+about: |
+  Mixtral 8x7B is a high-quality sparse mixture of experts model (SMoE) with
+  open weights and licensed under Apache 2.0.
+
+  Published by Mistral, Mixtral is said to outperform Llama 2 70B on most
+  benchmarks with 6x faster inference and matches or outperforms GPT3.5 on most
+  standard benchmarks.
+
+  Mixtral has 46.7B total parameters but only uses 12.9B parameters per token.
+  It therefore processes input and generates output at the same speed and for
+  the same cost as a 12.9B model.
+
+  The SDG classification was conducted by relying on Mixtral's inherent
+  knowledge of the Sustainable Development Goals. No information about the SDGs
+  was passed into the prompt, as you can see below.
+
+  Occasionally (< 1%), the model returns invalid JSON. In those cases, the
+  snippet to analyze is assigned the label `False`.
+
+  Note that the results can vary significantly depending on the prompt and
+  parameters (such as temperature) used. If you find a configuration that yields
+  better results, please let us know.
+
+  System Prompt:
+
+  ```
+  You are a helpful AI model that maps the provided text snippet to the 17 Sustainable Development Goals. You communicate by returning JSON-formatted responses. Your responses must always be valid JSON, with proper syntax and structure. The JSON should consist only of a list of the numbers of relevant Sustainable Development Goals, and should not include any extraneous data or text or comments.
+
+  Example output: {"sdgs": [1, 2, 3]}
+  ```
+
+  Prompt:
+
+  ```
+  Text snippet: """{text}"""
+  ```
+url: https://mistral.ai/news/mixtral-of-experts/
