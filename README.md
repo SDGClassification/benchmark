@@ -2,7 +2,7 @@
 
 The SDG Classification Benchmark is an open and public benchmarking dataset for evaluating and comparing SDG classification models. It consists of text snippets (2 - 3 sentences), which have been carefully labeled and verified by a team of human experts.
 
-**Note**: The benchmarking dataset currently covers SDGs 1 - 11. We will be expanding the benchmarking dataset to other SDGs in the coming months.
+**Note**: The benchmarking dataset currently covers SDGs 1 - 12. We will be expanding the benchmarking dataset to other SDGs in the coming months.
 
 ## Table of Contents<!-- omit from toc -->
 
@@ -137,7 +137,7 @@ In some cases, consensus was reached by making slight modifications to a text in
 
 ### Coverage
 
-The dataset currently covers SDGs 1 - 11.
+The dataset currently covers SDGs 1 - 12.
 
 | SDG                                            | Number of texts | Texts with SDG | Texts without SDG |
 | ---------------------------------------------- | --------------: | -------------: | ----------------: |
@@ -152,6 +152,7 @@ The dataset currently covers SDGs 1 - 11.
 | SDG 9: Industry, innovation and infrastructure |              57 |             28 |                29 |
 | SDG 10: Reduced inequalities                   |              61 |             32 |                29 |
 | SDG 11: Sustainable cities and communities     |              69 |             27 |                42 |
+| SDG 12: Responsible consumption and production |              80 |             43 |                37 |
 
 Note that the number of texts across the SDGs as well as the number of texts with and without SDG are currently not balanced. The working group is focusing first on expanding the benchmark to all SDGs with at least 50 texts each &mdash; the exact number of texts for each SDG will depend on how difficult it is to reach consensus within the working group. In the long-term, the group is planning to expand the number of texts for each SDG to one hundred.
 
@@ -245,6 +246,7 @@ We especially thank our annotators for making this project possible.
 - **SDG 9**: Steve Borchardt, Meike Morren, Finn Woelm
 - **SDG 10**: Steve Borchardt, Jean-Baptiste Jacouton, Meike Morren, Gib Ravivanpong, Finn Woelm
 - **SDG 11**: Steve Borchardt, Meike Morren, Finn Woelm
+- **SDG 12**: Steve Borchardt, Meike Morren, Gib Ravivanpong, Finn Woelm
 
 ### Text snippets
 
