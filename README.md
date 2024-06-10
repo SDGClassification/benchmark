@@ -208,6 +208,7 @@ The table below shows the accuracy (in percent) of models tested against this be
 | [OpenAI GPT-3.5 Turbo](https://github.com/SDGClassification/benchmark/tree/main/evaluations/openai-gpt-3/)             |        81 |      65 |      93 |      82 |      80 |      87 |      91 |      90 |      76 |      68 |       87 |       71 |       79 |
 | [OpenAI GPT-4 Turbo](https://github.com/SDGClassification/benchmark/tree/main/evaluations/openai-gpt-4/)               |        85 |      75 |      93 |      86 |      84 |      88 |      92 |      92 |      77 |      79 |       92 |       77 |       85 |
 | [OpenAI GPT-4o](https://github.com/SDGClassification/benchmark/tree/main/evaluations/openai-gpt-4o/)                   |        88 |      79 |      94 |      82 |      84 |      94 |      93 |      93 |      80 |      84 |       93 |       88 |       86 |
+| [text2sdg](https://github.com/SDGClassification/benchmark/tree/main/evaluations/text2sdg/)                             |        84 |      91 |      74 |      82 |      88 |      93 |      85 |      91 |      85 |      82 |       79 |       80 |       75 |
 
 <!-- evaluation table end -->
 
