@@ -1,0 +1,15 @@
+name: OSDG v1
+about: |
+  OSDG (v1) is an open-source tool that assigns labels to scientific content
+  based on Sustainable Development Goals (SDGs). It uses an ontology of 10k+
+  keywords for detecting SDGs in text.
+
+  A paper about the tool is available here: https://arxiv.org/abs/2005.14569
+
+  A newer version of the OSDG tool (v2) uses machine learning and can yield
+  better results. It is not available open source, but it can be accessed
+  online at https://osdg.ai/
+
+  OSDG is a partnership between PPMI, UNDP SDG AI Lab, and a growing community
+  of researchers led by Dr. Nuria Bautista Puig.
+url: https://osdg.ai/
