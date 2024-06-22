@@ -252,6 +252,7 @@ We especially thank our annotators for making this project possible.
 - **SDG 11**: Steve Borchardt, Meike Morren, Finn Woelm
 - **SDG 12**: Steve Borchardt, Meike Morren, Gib Ravivanpong, Finn Woelm
 - **SDG 13**: Steve Borchardt, Meike Morren, Gib Ravivanpong, Finn Woelm
+- **SDG 14**: Steve Borchardt, Meike Morren, Finn Woelm
 
 ### Text snippets
 
