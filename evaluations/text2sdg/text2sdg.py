@@ -6,10 +6,10 @@ from evaluations.BaseClassifier import BaseClassifier
 # and stored in the predictions.csv file.
 
 # Build image: docker build -t text2sdg .
-# Start Docker image: docker run -it -d text2sdg
-# Copy benchmark: docker cp benchmark.csv DOCKER_ID:/benchmark.csv
-# Classify: docker exec -i DOCKER_ID R --no-save < classify.R
-# Copy predictions: docker cp DOCKER_ID:/predictions.csv predictions.csv
+# Start Docker image: docker run --name text2sdg -it -d text2sdg
+# Copy benchmark: docker cp benchmark.csv $DOCKER_ID:/benchmark.csv
+# Classify: docker exec -i $DOCKER_ID R --no-save < classify.R
+# Copy predictions: docker cp $DOCKER_ID:/predictions.csv predictions.csv
 
 PREDICTIONS_DF = pd.read_csv(Path(__file__).parent.joinpath("predictions.csv"))
 PREDICTIONS_DF.predicted_sdgs = PREDICTIONS_DF.predicted_sdgs.apply(
