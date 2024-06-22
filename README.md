@@ -2,7 +2,7 @@
 
 The SDG Classification Benchmark is an open and public benchmarking dataset for evaluating and comparing SDG classification models. It consists of text snippets (2 - 3 sentences), which have been carefully labeled and verified by a team of human experts.
 
-**Note**: The benchmarking dataset currently covers SDGs 1 - 13. We will be expanding the benchmarking dataset to other SDGs in the coming months.
+**Note**: The benchmarking dataset currently covers SDGs 1 - 14. We will be expanding the benchmarking dataset to other SDGs in the coming months.
 
 ## Table of Contents<!-- omit from toc -->
 
@@ -137,7 +137,7 @@ In some cases, consensus was reached by making slight modifications to a text in
 
 ### Coverage
 
-The dataset currently covers SDGs 1 - 13.
+The dataset currently covers SDGs 1 - 14.
 
 | SDG                                            | Number of texts | Texts with SDG | Texts without SDG |
 | ---------------------------------------------- | --------------: | -------------: | ----------------: |
@@ -154,6 +154,7 @@ The dataset currently covers SDGs 1 - 13.
 | SDG 11: Sustainable cities and communities     |              69 |             27 |                42 |
 | SDG 12: Responsible consumption and production |              80 |             43 |                37 |
 | SDG 13: Climate action                         |              65 |             33 |                32 |
+| SDG 14: Life below water                       |              84 |             35 |                49 |
 
 Note that the number of texts across the SDGs as well as the number of texts with and without SDG are currently not balanced. The working group is focusing first on expanding the benchmark to all SDGs with at least 50 texts each &mdash; the exact number of texts for each SDG will depend on how difficult it is to reach consensus within the working group. In the long-term, the group is planning to expand the number of texts for each SDG to one hundred.
 
