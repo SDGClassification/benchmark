@@ -2,7 +2,7 @@
 
 The SDG Classification Benchmark is an open and public benchmarking dataset for evaluating and comparing SDG classification models. It consists of text snippets (2 - 3 sentences), which have been carefully labeled and verified by a team of human experts.
 
-**Note**: The benchmarking dataset currently covers SDGs 1 - 14. We will be expanding the benchmarking dataset to other SDGs in the coming months.
+**Note**: The benchmarking dataset currently covers SDGs 1 - 15. We will be expanding the benchmarking dataset to other SDGs in the coming weeks.
 
 ## Table of Contents<!-- omit from toc -->
 
@@ -137,7 +137,7 @@ In some cases, consensus was reached by making slight modifications to a text in
 
 ### Coverage
 
-The dataset currently covers SDGs 1 - 14.
+The dataset currently covers SDGs 1 - 15.
 
 | SDG                                            | Number of texts | Texts with SDG | Texts without SDG |
 | ---------------------------------------------- | --------------: | -------------: | ----------------: |
@@ -155,6 +155,7 @@ The dataset currently covers SDGs 1 - 14.
 | SDG 12: Responsible consumption and production |              80 |             43 |                37 |
 | SDG 13: Climate action                         |              65 |             33 |                32 |
 | SDG 14: Life below water                       |              84 |             35 |                49 |
+| SDG 15: Life on land                           |              71 |             41 |                30 |
 
 Note that the number of texts across the SDGs as well as the number of texts with and without SDG are currently not balanced. The working group is focusing first on expanding the benchmark to all SDGs with at least 50 texts each &mdash; the exact number of texts for each SDG will depend on how difficult it is to reach consensus within the working group. In the long-term, the group is planning to expand the number of texts for each SDG to one hundred.
 
@@ -233,7 +234,7 @@ This benchmarking dataset is a living document and we will continue to make adju
 
 ### Core contributors
 
-The benchmarking dataset has been created by the Benchmarking Working Group of the [SDG Classification Expert Group](https://sdg-ai.org/). Core contributors are Finn Woelm, Meike Morren, Steve Borchardt, Jean-Baptiste Jacouton and Gib Ravivanpong.
+The benchmarking dataset has been created by the Benchmarking Working Group of the [SDG Classification Expert Group](https://sdg-ai.org/). Core contributors are Finn Woelm, Meike Morren, Steve Borchardt, Gib Ravivanpong, Ivan Smirnov and Jean-Baptiste Jacouton.
 
 ### List of annotators
 
@@ -253,6 +254,7 @@ We especially thank our annotators for making this project possible.
 - **SDG 12**: Steve Borchardt, Meike Morren, Gib Ravivanpong, Finn Woelm
 - **SDG 13**: Steve Borchardt, Meike Morren, Gib Ravivanpong, Finn Woelm
 - **SDG 14**: Steve Borchardt, Meike Morren, Finn Woelm
+- **SDG 15**: Steve Borchardt, Meike Morren, Ivan Smirnov, Finn Woelm
 
 ### Text snippets
 
