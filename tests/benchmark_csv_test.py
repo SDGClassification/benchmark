@@ -1,15 +1,18 @@
 import hashlib
 import pandas as pd
 from sdgclassification.benchmark import load_benchmark_df
+import json
 
 
-def text_to_hash(text: str):
-    return hashlib.md5(text.encode()).hexdigest()[:7]
+def row_to_hash(row):
+    sdg: int = row["sdg"]
+    text: str = row["text"]
+    return hashlib.md5(json.dumps(dict(sdg=sdg, text=text)).encode()).hexdigest()[:7]
 
 
 def test_that_benchmark_ids_are_valid():
     benchmark_df = load_benchmark_df()
-    expected_ids = benchmark_df["text"].map(text_to_hash)
+    expected_ids = benchmark_df.apply(row_to_hash, axis=1)
     assert list(benchmark_df["id"]) == list(expected_ids)
 
 

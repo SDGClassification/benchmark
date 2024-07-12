@@ -6,11 +6,14 @@ from sdgclassification.benchmark import Benchmark, load_benchmark_df
 @pytest.fixture(scope="session")
 def predict_correctly():
     benchmark_df = load_benchmark_df()
+    idx = 0
 
     def classify(text: str) -> list[int]:
         """Classify method that always returns the correct label"""
-        sdg = benchmark_df[benchmark_df.text == text]["sdg"].item()
-        label = benchmark_df[benchmark_df.text == text]["label"].item()
+        nonlocal idx
+        sdg = benchmark_df.iloc[idx]["sdg"].item()
+        label = benchmark_df.iloc[idx]["label"].item()
+        idx += 1
 
         return [sdg] if label is True else []
 
@@ -20,11 +23,14 @@ def predict_correctly():
 @pytest.fixture(scope="session")
 def predict_incorrectly():
     benchmark_df = load_benchmark_df()
+    idx = 0
 
     def classify(text: str) -> list[int]:
         """Classify method that always returns the incorrect label"""
-        sdg = benchmark_df[benchmark_df.text == text]["sdg"].item()
-        label = benchmark_df[benchmark_df.text == text]["label"].item()
+        nonlocal idx
+        sdg = benchmark_df.iloc[idx]["sdg"].item()
+        label = benchmark_df.iloc[idx]["label"].item()
+        idx += 1
 
         return [] if label is True else [sdg]
 
