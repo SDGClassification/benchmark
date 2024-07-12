@@ -1,6 +1,6 @@
 # Benchmark for SDG Classification<!-- omit from toc -->
 
-The SDG Classification Benchmark is an open and public benchmarking dataset for evaluating and comparing SDG classification models. It consists of text snippets (2 - 3 sentences), which have been carefully labeled and verified by a team of human experts.
+The SDG Classification Benchmark is an open and public benchmarking dataset for evaluating and comparing SDG classification models. It consists of 1,251 short text snippets (a few sentences each) covering all 17 SDGs. All text snippets were carefully labeled and verified by a team of experts.
 
 ## Table of Contents<!-- omit from toc -->
 
@@ -139,6 +139,7 @@ The benchmark covers at least 50 texts for each SDG. Note that the number of tex
 
 | SDG                                            | Number of texts | Texts with SDG | Texts without SDG |
 | ---------------------------------------------- | --------------: | -------------: | ----------------: |
+| All texts                                      |            1251 |            619 |               632 |
 | SDG 1: No poverty                              |              77 |             27 |                50 |
 | SDG 2: Zero hunger                             |              69 |             45 |                24 |
 | SDG 3: Good health and well-being              |              76 |             28 |                48 |
@@ -155,6 +156,7 @@ The benchmark covers at least 50 texts for each SDG. Note that the number of tex
 | SDG 14: Life below water                       |              84 |             35 |                49 |
 | SDG 15: Life on land                           |              71 |             41 |                30 |
 | SDG 16: Peace, justice and strong institutions |              68 |             35 |                33 |
+| SDG 17: Partnerships for the goals             |              64 |             31 |                33 |
 
 ### Limitations
 
@@ -196,20 +198,20 @@ The table below shows the accuracy (in percent) of models tested against this be
 
 <!-- evaluation table begin -->
 
-| Model                                                                                                                  |   Average |   SDG 1 |   SDG 2 |   SDG 3 |   SDG 4 |   SDG 5 |   SDG 6 |   SDG 7 |   SDG 8 |   SDG 9 |   SDG 10 |   SDG 11 |   SDG 12 |   SDG 13 |   SDG 14 |   SDG 15 |   SDG 16 |
-|:-----------------------------------------------------------------------------------------------------------------------|----------:|--------:|--------:|--------:|--------:|--------:|--------:|--------:|--------:|--------:|---------:|---------:|---------:|---------:|---------:|---------:|---------:|
-| [AFD SDG Prospector](https://github.com/SDGClassification/benchmark/tree/main/evaluations/sdg-prospector/)             |        88 |      95 |      87 |      91 |      95 |      81 |      92 |      95 |      89 |      86 |       87 |       90 |       84 |       89 |       83 |       82 |       91 |
-| [Aurora SDG](https://github.com/SDGClassification/benchmark/tree/main/evaluations/aurora-sdg/)                         |        79 |      79 |      83 |      80 |      79 |      93 |      81 |      85 |      81 |      70 |       70 |       81 |       76 |       86 |       81 |       75 |       65 |
-| [Global Goals Directory](https://github.com/SDGClassification/benchmark/tree/main/evaluations/global-goals-directory/) |        82 |      90 |      80 |      90 |      78 |      74 |      87 |      91 |      84 |      81 |       80 |       78 |       74 |       78 |       84 |       80 |       76 |
-| [JRC SDG Mapper](https://github.com/SDGClassification/benchmark/tree/main/evaluations/sdg-mapper/)                     |        78 |      82 |      71 |      84 |      70 |      75 |      73 |      86 |      77 |      77 |       70 |       75 |       79 |       83 |       82 |       82 |       75 |
-| [Meta Llama 2 70B](https://github.com/SDGClassification/benchmark/tree/main/evaluations/llama-2/)                      |        84 |      90 |      83 |      93 |      90 |      93 |      87 |      93 |      78 |      74 |       79 |       68 |       80 |       91 |       84 |       84 |       69 |
-| [Meta Llama 3 70B](https://github.com/SDGClassification/benchmark/tree/main/evaluations/llama-3/)                      |        86 |      77 |      90 |      86 |      85 |      91 |      92 |      91 |      80 |      84 |       92 |       84 |       84 |       92 |       81 |       89 |       81 |
-| [Mixtral 8x7B](https://github.com/SDGClassification/benchmark/tree/main/evaluations/mixtral-8x7b/)                     |        85 |      84 |      86 |      83 |      89 |      87 |      88 |      94 |      80 |      75 |       95 |       81 |       82 |       92 |       81 |       82 |       79 |
-| [OSDG v1](https://github.com/SDGClassification/benchmark/tree/main/evaluations/osdg/)                                  |        71 |      87 |      56 |      70 |      80 |      64 |      84 |      82 |      77 |      56 |       72 |       71 |       71 |       66 |       77 |       66 |       52 |
-| [OpenAI GPT-3.5 Turbo](https://github.com/SDGClassification/benchmark/tree/main/evaluations/openai-gpt-3/)             |        81 |      65 |      93 |      82 |      80 |      87 |      91 |      90 |      76 |      68 |       87 |       71 |       79 |       91 |       76 |       83 |       78 |
-| [OpenAI GPT-4 Turbo](https://github.com/SDGClassification/benchmark/tree/main/evaluations/openai-gpt-4/)               |        86 |      75 |      93 |      86 |      84 |      88 |      92 |      92 |      77 |      79 |       92 |       77 |       85 |       94 |       80 |       92 |       84 |
-| [OpenAI GPT-4o](https://github.com/SDGClassification/benchmark/tree/main/evaluations/openai-gpt-4o/)                   |        87 |      79 |      94 |      82 |      84 |      94 |      93 |      93 |      80 |      84 |       93 |       88 |       86 |       94 |       82 |       90 |       81 |
-| [text2sdg](https://github.com/SDGClassification/benchmark/tree/main/evaluations/text2sdg/)                             |        84 |      91 |      74 |      82 |      88 |      93 |      85 |      91 |      85 |      82 |       79 |       80 |       75 |       91 |       82 |       80 |       79 |
+| Model                                                                                                                  | Average | SDG 1 | SDG 2 | SDG 3 | SDG 4 | SDG 5 | SDG 6 | SDG 7 | SDG 8 | SDG 9 | SDG 10 | SDG 11 | SDG 12 | SDG 13 | SDG 14 | SDG 15 | SDG 16 |
+| :--------------------------------------------------------------------------------------------------------------------- | ------: | ----: | ----: | ----: | ----: | ----: | ----: | ----: | ----: | ----: | -----: | -----: | -----: | -----: | -----: | -----: | -----: |
+| [AFD SDG Prospector](https://github.com/SDGClassification/benchmark/tree/main/evaluations/sdg-prospector/)             |      88 |    95 |    87 |    91 |    95 |    81 |    92 |    95 |    89 |    86 |     87 |     90 |     84 |     89 |     83 |     82 |     91 |
+| [Aurora SDG](https://github.com/SDGClassification/benchmark/tree/main/evaluations/aurora-sdg/)                         |      79 |    79 |    83 |    80 |    79 |    93 |    81 |    85 |    81 |    70 |     70 |     81 |     76 |     86 |     81 |     75 |     65 |
+| [Global Goals Directory](https://github.com/SDGClassification/benchmark/tree/main/evaluations/global-goals-directory/) |      82 |    90 |    80 |    90 |    78 |    74 |    87 |    91 |    84 |    81 |     80 |     78 |     74 |     78 |     84 |     80 |     76 |
+| [JRC SDG Mapper](https://github.com/SDGClassification/benchmark/tree/main/evaluations/sdg-mapper/)                     |      78 |    82 |    71 |    84 |    70 |    75 |    73 |    86 |    77 |    77 |     70 |     75 |     79 |     83 |     82 |     82 |     75 |
+| [Meta Llama 2 70B](https://github.com/SDGClassification/benchmark/tree/main/evaluations/llama-2/)                      |      84 |    90 |    83 |    93 |    90 |    93 |    87 |    93 |    78 |    74 |     79 |     68 |     80 |     91 |     84 |     84 |     69 |
+| [Meta Llama 3 70B](https://github.com/SDGClassification/benchmark/tree/main/evaluations/llama-3/)                      |      86 |    77 |    90 |    86 |    85 |    91 |    92 |    91 |    80 |    84 |     92 |     84 |     84 |     92 |     81 |     89 |     81 |
+| [Mixtral 8x7B](https://github.com/SDGClassification/benchmark/tree/main/evaluations/mixtral-8x7b/)                     |      85 |    84 |    86 |    83 |    89 |    87 |    88 |    94 |    80 |    75 |     95 |     81 |     82 |     92 |     81 |     82 |     79 |
+| [OSDG v1](https://github.com/SDGClassification/benchmark/tree/main/evaluations/osdg/)                                  |      71 |    87 |    56 |    70 |    80 |    64 |    84 |    82 |    77 |    56 |     72 |     71 |     71 |     66 |     77 |     66 |     52 |
+| [OpenAI GPT-3.5 Turbo](https://github.com/SDGClassification/benchmark/tree/main/evaluations/openai-gpt-3/)             |      81 |    65 |    93 |    82 |    80 |    87 |    91 |    90 |    76 |    68 |     87 |     71 |     79 |     91 |     76 |     83 |     78 |
+| [OpenAI GPT-4 Turbo](https://github.com/SDGClassification/benchmark/tree/main/evaluations/openai-gpt-4/)               |      86 |    75 |    93 |    86 |    84 |    88 |    92 |    92 |    77 |    79 |     92 |     77 |     85 |     94 |     80 |     92 |     84 |
+| [OpenAI GPT-4o](https://github.com/SDGClassification/benchmark/tree/main/evaluations/openai-gpt-4o/)                   |      87 |    79 |    94 |    82 |    84 |    94 |    93 |    93 |    80 |    84 |     93 |     88 |     86 |     94 |     82 |     90 |     81 |
+| [text2sdg](https://github.com/SDGClassification/benchmark/tree/main/evaluations/text2sdg/)                             |      84 |    91 |    74 |    82 |    88 |    93 |    85 |    91 |    85 |    82 |     79 |     80 |     75 |     91 |     82 |     80 |     79 |
 
 <!-- evaluation table end -->
 
@@ -253,6 +255,7 @@ We especially thank our annotators for making this project possible.
 - **SDG 14**: Steve Borchardt, Meike Morren, Finn Woelm
 - **SDG 15**: Steve Borchardt, Meike Morren, Ivan Smirnov, Finn Woelm
 - **SDG 16**: Steve Borchardt, Meike Morren, Ivan Smirnov, Finn Woelm
+- **SDG 17**: Steve Borchardt, Meike Morren, Gib Ravivanpong, Ivan Smirnov, Finn Woelm
 
 ### Text snippets
 

@@ -49,16 +49,13 @@ class Benchmark:
         # Load the benchmarking dataset
         self.df = load_benchmark_df()
 
+        # Verify that requested SDGs are valid
+        if any(sdg < 1 or sdg > 17 for sdg in sdgs):
+            raise ValueError("SDGs must be in range 1 - 17")
+
         # Filter SDGs, if any
         if len(sdgs):
             self.df = self.df[self.df["sdg"].isin(sdgs)]
-
-        # Verify that all requested SDGs are present
-        missing_sdgs = set(sdgs) - set(self.df.sdg.unique())
-        if len(missing_sdgs):
-            raise ValueError(
-                f"SDGs {missing_sdgs} are not (yet) covered by the benchmark"
-            )
 
         # Prepare the progress bar
         self.bar = Bar("Benchmarking", max=len(self.df))

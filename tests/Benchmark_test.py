@@ -49,7 +49,7 @@ def describe_init():
     def it_throws_when_filtering_by_unavailable_sdg():
         with pytest.raises(
             ValueError,
-            match=re.escape("SDGs {25, 17} are not (yet) covered by the benchmark"),
+            match=re.escape("SDGs must be in range 1 - 17"),
         ):
             Benchmark(predict_sdgs=lambda x: [1, 2, 3], sdgs=[1, 25, 17])
 
