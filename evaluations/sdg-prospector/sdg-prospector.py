@@ -7,10 +7,21 @@ from evaluations.BaseClassifier import BaseClassifier
 # separately and stored in the predictions.csv file.
 PREDICTIONS_DF = pd.read_csv(Path(__file__).parent.joinpath("predictions.csv"))
 PREDICTIONS_DF.predicted_sdgs = PREDICTIONS_DF.predicted_sdgs.apply(json.loads)
+idx = 0
 
 
 class Classifier(BaseClassifier):
     name = Path(__file__).stem
 
     def predict_sdgs(self, text: str) -> list[int]:
-        return PREDICTIONS_DF[PREDICTIONS_DF.text == text]["predicted_sdgs"].item()
+        global idx
+        prediction = PREDICTIONS_DF.iloc[idx]
+
+        # Verify that text of prediction matches our text
+        assert prediction.text == text
+
+        # Increment pointer
+        idx += 1
+
+        # Return sdgs
+        return prediction.predicted_sdgs
