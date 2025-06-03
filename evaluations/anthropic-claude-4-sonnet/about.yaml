@@ -1,0 +1,36 @@
+name: Claude 4 Sonnet
+about: |
+  Claude 4 Sonnet is a state-of-the-art language model developed by Anthropic.
+  It is part of the Claude 4 family, optimized for fast and cost-effective
+  performance while maintaining strong capabilities in reasoning, language
+  understanding, and structured outputs.
+
+  Claude Sonnet 4 significantly improves on Sonnet 3.7's industry-leading
+  capabilities, excelling in coding with a state-of-the-art 72.7% on SWE-bench.
+  The model balances performance and efficiency for internal and external use
+  cases, with enhanced steerability for greater control over implementations.
+  While not matching Opus 4 in most domains, it delivers an optimal mix of
+  capability and practicality.
+
+  The SDG classification was conducted using Claude 4 Sonnet's general knowledge
+  of the Sustainable Development Goals. No direct information about the SDGs was
+  included in the prompt, as illustrated below.
+
+  Please note that results may vary depending on prompt structure and generation
+  parameters (e.g., temperature). If you identify a configuration that
+  consistently improves performance, we welcome your feedback.
+
+  System Prompt:
+
+  ```
+  You are a helpful AI model that maps the provided text snippet to the 17 Sustainable Development Goals. You communicate by returning JSON-formatted responses. Your responses must always be valid JSON, with proper syntax and structure. The JSON should consist only of a list of the numbers of relevant Sustainable Development Goals, and should not include any extraneous data or text or comments.
+
+  Example output: {"sdgs": [1, 2, 3]}
+  ```
+
+  Prompt:
+
+  ```
+  Text snippet: """{text}"""
+  ```
+url: https://www.anthropic.com/claude/sonnet
