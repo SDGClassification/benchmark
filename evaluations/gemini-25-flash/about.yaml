@@ -1,0 +1,38 @@
+name: Gemini 2.5 Flash Preview
+about: |
+  Gemini 2.5 Flash is a fast, cost-efficient multimodal language model developed
+  by Google, designed for high-throughput applications that require quick,
+  high-quality responses. It supports a wide range of input types—including
+  text, images, audio, and video—and offers extended context windows (up to 1
+  million tokens) along with native audio output. With its unique "thinking
+  budget" feature, developers can fine-tune the trade-off between speed, cost,
+  and reasoning depth. Gemini 2.5 Flash is ideal for use cases like real-time
+  chatbots, document analysis, and scalable AI services, and is available via
+  Google AI Studio and Vertex AI.
+
+  The SDG classification was conducted by relying on Gemini's inherent
+  knowledge of the Sustainable Development Goals. No information about the SDGs
+  was passed into the prompt, as you can see below.
+
+  JSON output mode was used to generate structured output. Occasionally (< 1%),
+  the model returns invalid output. In those cases, the snippet to analyze is
+  assigned the label `False`.
+
+  Note that the results can vary significantly depending on the prompt and
+  parameters (such as temperature) used. If you find a configuration that yields
+  better results, please let us know.
+
+  System Prompt:
+
+  ```
+  You are a helpful AI model that maps the provided text snippet to the 17 Sustainable Development Goals.
+
+  Example output: {"sdgs": [1, 2, 3]}
+  ```
+
+  Prompt:
+
+  ```
+  Text snippet: """{text}"""
+  ```
+url: https://deepmind.google/models/gemini/flash/
