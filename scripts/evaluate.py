@@ -56,6 +56,9 @@ accuracies_df = accuracies_df.reindex(columns=sdgs_series)
 # Write accuracies to file
 classifier.write_accuracies(accuracies_df)
 
+# Write results to file
+classifier.write_results(benchmark.results.to_dataframe())
+
 # Update readme
 classifier.write_readme(benchmark.stats.format("pipe"))
 
